@@ -100,7 +100,7 @@
 ---
 
 ## 5. Canonical Links & Verification (官方連結與驗證)
-- **Personal Hub (官方個人首頁)**: https://jackylawck.github.io/jackylawck/
+- **Personal Hub (官方個人首頁)**: https://jackylawck.github.io/
 - **ORCID Record (全球學者登記冊)**: https://orcid.org/0009-0006-0855-0842
 - **Keybase Cryptographic Proofs**: https://keybase.io/jackylawck
 - **GitHub Profile**: https://github.com/jackylawck
