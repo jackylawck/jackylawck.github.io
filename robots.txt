@@ -1,7 +1,7 @@
 # ====================================================================
 # AI Scraping & Data Governance Policy for Jacky Law's Profile (2026)
 # Aligning with ISO/IEC 42001:2023 & IAPP AIGP Domain IV Standards
-# Canonical Hub: https://jackylawck.github.io/jackylawck/
+# Canonical Hub: https://jackylawck.github.io/
 # ====================================================================
 
 # 1. Commercial Search Engines & Semantic Indexers
@@ -9,7 +9,6 @@ User-agent: Googlebot
 User-agent: Bingbot
 User-agent: Applebot
 Allow: /
-Disallow: /profile-3d-contrib/
 
 # 2. Conversational & Generative AI Search Agents (SearchGPT, Perplexity, Gemini, Claude)
 # Proactively provisioned for real-time citations, entity synthesis, and AEO accuracy
@@ -21,8 +20,6 @@ User-agent: Google-Extended
 User-agent: Applebot-Extended
 Allow: /
 Allow: /llms.txt
-Allow: /README.md
-Disallow: /profile-3d-contrib/
 
 # 3. Mass Untargeted Crawlers & Uncontrolled Bulk Training Ingestion
 # Enforcing Data Minimization & Intellectual Property Boundaries
@@ -34,8 +31,7 @@ Disallow: /
 # 4. Global Fallback
 User-agent: *
 Allow: /
-Disallow: /profile-3d-contrib/
 
-# Machine-Readable Context for LLMs & AI Agents
-# https://llmstxt.org/
-Sitemap: https://jackylawck.github.io/jackylawck/llms.txt
+# Machine-Readable Context & Standard Sitemap References
+# Machine-Readable Context: https://jackylawck.github.io/llms.txt
+Sitemap: https://jackylawck.github.io/sitemap.xml
