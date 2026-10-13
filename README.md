@@ -1,7 +1,7 @@
 # 羅子淇 Jacky Law · Official Hub (jackylawck.github.io)
 
 > **以人為本 · 大巧不工**  
-> Official source repository for the personal governance portal and open-source workstation directory of **Jacky Law (羅子淇)**.  
+> Official source repository for the personal governance portal and open-source workstation directory of **Jacky Law**.  
 > 羅子淇個人官方首頁與四大支柱開源管治工作站之託管原始碼庫。
 
 🌐 **Live Production**: [https://jackylawck.github.io/](https://jackylawck.github.io/)
