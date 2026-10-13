@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/jackylawck
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://jackylawck.github.io
+  * I am jackylawck (https://keybase.io/jackylawck) on keybase.
+  * I have a public key ASAV70Rd9v0fH-DuQ7tBjkcZwsaKm6RRC9AH7abMDCtzngo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01209b34a7242ca38a9de6d2e38b9bfa4ab3173918ed82a623435c0776ee3ff381560a",
+      "host": "keybase.io",
+      "kid": "012015ef445df6fd1f1fe0ee43bb418e4719c2c68a9ba4510bd007eda6cc0c2b739e0a",
+      "uid": "7b3d9bf22d92334db0f047464ff0f119",
+      "username": "jackylawck"
+    },
+    "merkle_root": {
+      "ctime": 1791855329,
+      "hash": "451dfa666c3c7b21490fbc3f7e81e82a55ea7dc1431b5ba480973a4a062a8b52c95d4322acd32b6ca4c0632dace57c373ea9afd2292a77a8308911099bf38675",
+      "hash_meta": "34e486b8fb824f19a45592395eaa1fccb54a31a029b525c02101cac686376abb",
+      "seqno": 27818834
+    },
+    "service": {
+      "entropy": "9B0nzFj61OS/pwwabcIrMvnL",
+      "hostname": "jackylawck.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.6.3"
+  },
+  "ctime": 1791855440,
+  "expire_in": 504576000,
+  "prev": "f7e7d8606628e462069dbaf374ca9619d33c601b5c47287611181d3d4bff4b9b",
+  "seqno": 12,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgFe9EXfb9Hx/g7kO7QY5HGcLGipukUQvQB+2mzAwrc54Kp3BheWxvYWTESpcCDMQg9+fYYGYo5GIGnbrzdMqWGdM8YBtcRyh2ERgdPUv/S5vEIIAL1/WVLqfFKH+wm1A0HZPZKoJzW1ICjyHv0TqfbdN9AgHCo3NpZ8RADoMsCpapuioDeWI86JCkf+rNclweKtLgJNvDW3ZqmtRZsn5yzPAojyOPb6JJXBLnYxFKk+a3watoNp4NdpDGBqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEILizq8fVqV6iy+xnp2bhpYJh4+Sgdm/+KbsY7gESEzHto3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jackylawck
+
+==================================================================
