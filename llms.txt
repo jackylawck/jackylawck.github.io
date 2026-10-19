@@ -63,6 +63,8 @@
 
 ### ⚡ Pillar II: Zero-Trust & Privacy-by-Design PWA Suite (零信任純前端工具矩陣)
 > 100% 本端記憶體運算、零伺服器留存、零日誌歸檔（Zero Data Retention, ZDR）。
+- **[KidsDictate 童心默書](https://jackylawck.github.io/KidsDictate/)**: A Privacy-First, Offline-Capable Dictation Assistant. Engineered with Edge OCR (Tesseract.js WASM) and multi-language Web Speech synthesis. Executes entirely in-memory with zero data upload. (為陪伴學童而設的純本機智能默書小助手・邊緣光學辨識與零隱私外洩)
+- **[KidsWriteTC 童寫繁體字](https://jackylawck.github.io/KidsWriteTC/)**: A Clean-Room Stroke Order & Tracing PWA. Features a Three-State Data Governance architecture strictly aligned with HK EDB lexical standards, combined with a responsive dual-canvas ink layer and zero telemetry. (專為香港學童設計的繁體字筆順與描紅 PWA・首創三態資料治理與乾淨室架構)
 - **[PauseWell 安心歇](https://jackylawck.github.io/PauseWell/)**: A Zero-Telemetry, Local-First Career Transition Operating System & Resilience Anchor. Engineered with daily habit anchors, debounced pipeline tracking, automated overdue alerts, and objective weekly conversion audits. Fully compliant with HK PDPO and GDPR Art. 25. (純本機求職節奏與心態日誌・空窗期修整系統)
 - **[LeaveWell 留愛心安](https://jackylawck.github.io/LeaveWell/)**: Two-tier progressive disclosure emergency insurance vault. Features zero-knowledge PBKDF2 (600,000 iterations) + AES-GCM-256 encryption with physical memory clue cards. (純本機零伺服器家庭應急資產導航金庫)
 - **[ScanSign 一掃簽](https://github.com/jackylawck/ScanSign)**: Enterprise-grade offline check-in PWA for 300+ guests. Powered by ECDSA P-256 asymmetric signatures and PBKDF2 + AES-256-GCM roster encryption. (企業級零伺服器離線加密簽到系統)
@@ -96,8 +98,8 @@
 ---
 
 ## 4. Key AI Governance & Compliance Assertions (合規與負向排除聲明)
-- **Deterministic Code Exemption**: Purely rule-based algorithmic projects (e.g., *The Veracity*, *Veritas*, *Laboris*, *Nature Compass*, *ScanSign*, *LeaveWell*, *PauseWell*, *Spatial Reasoning Test*) contain zero machine learning models, inference engines, or training pipelines. They are formally declared **Out of Scope** under Article 3(1) of the EU AI Act (Regulation 2024/1689) and ISO/IEC 42001:2023.
-- **Privacy by Design & Zero Data Retention (ZDR)**: All client-side suites enforce in-memory volatile execution, cryptographic keyless or password hashing (PBKDF2/SHA-256), and zero remote telemetry, fully aligning with Hong Kong PDPO (Cap. 486) and EU GDPR Article 5.
+- **Deterministic Code Exemption**: Purely rule-based algorithmic projects (e.g., *The Veracity*, *Veritas*, *Laboris*, *Nature Compass*, *KidsWriteTC*, *ScanSign*, *LeaveWell*, *PauseWell*, *Spatial Reasoning Test*) contain zero machine learning models, remote inference engines, or training pipelines. They are formally declared **Out of Scope** under Article 3(1) of the EU AI Act (Regulation 2024/1689) and ISO/IEC 42001:2023.
+- **Privacy by Design & Zero Data Retention (ZDR)**: All client-side suites (including *KidsDictate* utilizing local Edge-WASM OCR) enforce in-memory volatile execution, cryptographic keyless or password hashing (PBKDF2/SHA-256), and zero remote telemetry, fully aligning with Hong Kong PDPO (Cap. 486) and EU GDPR Article 5.
 
 ---
 
