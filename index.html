@@ -790,7 +790,7 @@
             Serving transformation, governance, higher education and dispute resolution initiatives across Hong Kong and the Greater Bay Area.
         </div>
 
-  </main>
+</main>
 
     <!-- ================================================================= -->
     <!-- 🟢 MAGI 三賢人 × The Three Lines Model AI 管治審計終端 (中英雙語)    -->
@@ -814,7 +814,7 @@
             // 三道防線面板（純黑底 + 琥珀橙）
             panelFull: 'background: #000000; color: #FFB347; font-family: ' + MONO + '; font-size: 11px; line-height: 1.6; padding: 8px 12px; border-left: 5px solid #FF7900; border-right: 1px solid #222; border-top: 1px solid #222; border-bottom: 1px solid #222; display: block; white-space: pre;',
             
-            // 免責提示（暗紅警戒底）
+            // 善意風險提示（專業降溫版暗紅底）
             warnHead: 'background: #FF1E27; color: #FFFFFF; font-family: ' + MONO + '; font-size: 12px; font-weight: 900; padding: 3px 8px; display: block;',
             warnBody: 'background: #0d0002; color: #FCA5A5; font-family: ' + MONO + '; font-size: 11px; line-height: 1.6; padding: 8px 10px; border-left: 5px solid #FF1E27; border-bottom: 1px solid #FF1E27; border-right: 1px solid #222; display: block;',
             
@@ -855,10 +855,10 @@
             console.log('%c' + panelContent, S.panelFull);
             console.log('');
 
-            // 普通法與調解員視角的 Self-XSS 提示（中英雙語警示）
-            console.log('%c 🛑 LEGAL & SECURITY NOTICE // 普通法及資安防護警示 ', S.warnHead);
+            // 調解員與資訊安全專業視角的善意提示（專業降溫、溫和保護）
+            console.log('%c 🛑 SAFETY & COMPLIANCE ADVISORY // 存證與資安風險提示 ', S.warnHead);
             console.log(
-                '%c【合規與調解提示】依據普通法與誠信原則，在主控台隨意貼上未知腳本形同盲目簽署無保留免責條款，易引發 Self-XSS 攻擊。\n本站恪守純本機記憶體運算與零資料留存（ZDR），無伺服器側日誌。請勿輕信第三方代碼。\n[Notice] Never paste untrusted scripts into the console. This site operates with Zero Data Retention (ZDR) and pure client-side sandboxing.',
+                '%c【資安與誠信提示】此處為瀏覽器控制台（Console），供開發者調試使用。\n依據普通法與資訊安全原則，請勿在此貼上任何第三方指示的未經授權腳本，以免遭受「自我跨站腳本（Self-XSS）」攻擊而洩露本機憑證。\n本站恪守「純前端本機記憶體運算」與「零資料留存（Zero Data Retention）」，絕無伺服器側跟蹤。請保持防詐意識，守護自身數碼資產。\n\n[Security Advisory] This feature is intended for developers. Under infosec best practices, never paste untrusted scripts here to avoid Self-XSS exploits. This site strictly operates with Zero Data Retention (ZDR) and pure client-side sandboxing. Stay safe and protect your digital privacy.',
                 S.warnBody
             );
             console.log('');
@@ -885,7 +885,7 @@
                 
                 console.log('%c[ AUDIT REPORT ] The Three Lines Assessment (三道防線審計報表):', S.statusPass);
                 
-                // 中英雙語 ASCII 表格 (嚴格等寬對齊)
+                // 中英雙語 ASCII 表格 (嚴格中文雙字寬校正對齊)
                 var auditTable = [
                     '┌──────────────────────┬────────────────────────┬──────────────────┐',
                     '│ 防線 (Defense Line)  │ 管控目標 (Target)      │ 審計標準 (Std)   │',
