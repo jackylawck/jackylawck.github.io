@@ -793,8 +793,8 @@
   </main>
 
     <!-- ================================================================= -->
-    <!-- 🟢 NERV / MAGI 三賢人 × The Three Lines Model AI 管治審計終端     -->
-    <!-- 100% 原作色彩對齊：NERV 警戒紅 × MAGI 琥珀橙 × 戰術純黑沙盒        -->
+    <!-- 🟢 MAGI 三賢人 × The Three Lines Model AI 管治審計終端            -->
+    <!-- 100% Client-Side Pure JS / 自帶使徒黑底保護 / Zero Telemetry      -->
     <!-- ================================================================= -->
     <script>
     (function () {
@@ -802,23 +802,19 @@
 
         var MONO = '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace';
 
-        // 嚴格對齊 EVA 原作：純黑底 (#000000)、NERV 警戒紅 (#FF1E27)、MAGI 琥珀橙 (#FF7900)
         var S = {
-            // NERV 粗體 ASCII 字符面板
-            ascii: 'background: #000000; color: #FF1E27; font-family: ' + MONO + '; font-weight: 900; font-size: 11px; line-height: 1.15; padding: 10px 14px; border-left: 5px solid #FF1E27; border-top: 1px solid #222; border-right: 1px solid #222; display: block; white-space: pre;',
-            
-            // 標題與身份鏈條
-            title: 'background: #000000; color: #FF1E27; font-family: ' + MONO + '; font-size: 13px; font-weight: 900; padding: 6px 10px; border-left: 5px solid #FF1E27; border-right: 1px solid #222; display: block;',
+            // 標題列：左側紅條警戒線，極致純黑底
+            title: 'background: #000000; color: #FF1E27; font-family: ' + MONO + '; font-size: 13px; font-weight: 900; padding: 7px 10px; border-left: 5px solid #FF1E27; border-top: 1px solid #222; border-right: 1px solid #222; display: block;',
             sub: 'background: #000000; color: #FF7900; font-family: ' + MONO + '; font-size: 11px; font-weight: bold; padding: 4px 10px; border-left: 5px solid #FF7900; border-bottom: 1px solid #222; border-right: 1px solid #222; display: block;',
             
             // MAGI 三賢人琥珀橙葉片模組
             magiUnit: 'background: #000000; color: #FF7900; font-family: ' + MONO + '; font-size: 11px; font-weight: 900; padding: 4px 8px; border: 1.5px solid #FF7900; border-radius: 2px;',
             statusPass: 'background: #FF7900; color: #000000; font-family: ' + MONO + '; font-size: 12px; font-weight: 900; padding: 4px 10px; border-radius: 2px;',
             
-            // 三道防線面板（純黑底 + 琥珀橙 / 刻度綠）
+            // 三道防線面板（純黑底 + 琥珀橙）
             panelFull: 'background: #000000; color: #FFB347; font-family: ' + MONO + '; font-size: 11px; line-height: 1.6; padding: 8px 12px; border-left: 5px solid #FF7900; border-right: 1px solid #222; border-top: 1px solid #222; border-bottom: 1px solid #222; display: block; white-space: pre;',
             
-            // 免責提示（NERV 警戒暗紅）
+            // 免責提示（暗紅警戒底）
             warnHead: 'background: #FF1E27; color: #FFFFFF; font-family: ' + MONO + '; font-size: 12px; font-weight: 900; padding: 3px 8px; display: block;',
             warnBody: 'background: #0d0002; color: #FCA5A5; font-family: ' + MONO + '; font-size: 11px; line-height: 1.6; padding: 8px 10px; border-left: 5px solid #FF1E27; border-bottom: 1px solid #FF1E27; border-right: 1px solid #222; display: block;',
             
@@ -831,19 +827,12 @@
         };
 
         function renderMagiTerminal() {
-            var asciiNERV = [
-                ' _  _ ____ ____ _  _   _  _ ____ ____ _ ',
-                ' |\\ | |___ |--< |  |   |\\/| |__| | __ | ',
-                ' | \\| |___ |  \\  \\/    |  | |  | |__] | '
-            ].join('\n');
-
-            console.log('%c' + asciiNERV, S.ascii);
-
-            console.log('%c[ NERV TACTICAL CENTER // MAGI AI 管治審計終端 ]', S.title);
+            // 乾淨俐落首行：直出戰術終端標題
+            console.log('%c[ TACTICAL CENTER // MAGI AI 管治審計終端 ]', S.title);
             console.log('%cPROVENANCE: PGP [FFA3E47793F1CA32] • IIA THE THREE LINES MODEL VERIFIED', S.sub);
             console.log('');
 
-            // MAGI 三賢人合意矩陣 (原作琥珀橙)
+            // MAGI 三賢人合意矩陣 (琥珀戰術橙)
             console.log(
                 '%c[ MELCHIOR-1: 1st Line (DevSecOps) ] AGREED %c  %c[ BALTHASAR-2: 2nd Line (Risk & Compliance) ] AGREED %c  %c[ CASPER-3: 3rd Line (Internal Audit) ] AGREED ',
                 S.magiUnit, '',
@@ -896,7 +885,7 @@
                 
                 console.log('%c[ AUDIT REPORT ] The Three Lines Health Assessment:', S.statusPass);
                 
-                // MAGI 琥珀橙黑底 ASCII 表格
+                // 緊湊版純黑底 ASCII 表格（單行不超過 55 字元）
                 var auditTable = [
                     '┌──────────────────┬─────────────────────┬──────────────────┐',
                     '│ Defense Line     │ Control / Status    │ Audit Standard   │',
