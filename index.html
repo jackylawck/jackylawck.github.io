@@ -802,7 +802,6 @@
 
         var MONO = '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace';
 
-        // 樣式庫：全數嚴格自帶黑底 (#000000 或 #0a0414)，徹底封殺白底透出
         var S = {
             ascii: 'background: #000000; color: #7B2CBF; font-family: ' + MONO + '; font-weight: bold; font-size: 10px; line-height: 1.25;',
             title: 'background: #000000; color: #FF1E27; font-family: ' + MONO + '; font-size: 14px; font-weight: 900; padding: 6px 10px; border-left: 5px solid #FF1E27; border-top: 1px solid #333; border-right: 1px solid #333; display: block;',
@@ -810,8 +809,8 @@
             magiUnit: 'background: #000000; color: #39FF14; font-family: ' + MONO + '; font-size: 11px; font-weight: bold; padding: 4px 8px; border: 1px solid #39FF14; border-radius: 3px;',
             statusPass: 'background: #39FF14; color: #000000; font-family: ' + MONO + '; font-size: 12px; font-weight: 900; padding: 4px 10px; border-radius: 2px;',
             
-            // 修正版：整塊面板一體化深黑（解決你截圖中框線破裂與斷黑問題）
-            panelFull: 'background: #050508; color: #D8B4FE; font-family: ' + MONO + '; font-size: 11px; line-height: 1.6; padding: 8px 12px; border-left: 4px solid #7B2CBF; border-right: 1px solid #222; border-top: 1px solid #222; border-bottom: 1px solid #222; display: block;',
+            // 緊湊一體化深黑面板，強制保留預格式化防止折行
+            panelFull: 'background: #050508; color: #D8B4FE; font-family: ' + MONO + '; font-size: 11px; line-height: 1.6; padding: 8px 12px; border-left: 4px solid #7B2CBF; border-right: 1px solid #222; border-top: 1px solid #222; border-bottom: 1px solid #222; display: block; white-space: pre;',
             
             // 警示黑底框
             warnHead: 'background: #FF1E27; color: #FFFFFF; font-family: ' + MONO + '; font-size: 12px; font-weight: 900; padding: 3px 8px; display: block;',
@@ -820,7 +819,7 @@
             // 指令提示條
             cliBar: 'background: #1a0b2e; color: #39FF14; font-family: ' + MONO + '; font-size: 11px; font-weight: bold; padding: 6px 10px; border: 1px solid #7B2CBF; display: block;',
             
-            // help 與 audit 專用跨背景顏色
+            // help 與 audit 專用
             cmdKey: 'background: #15441E; color: #39FF14; font-weight: bold; font-family: ' + MONO + '; padding: 1px 6px; border-radius: 2px;',
             cmdDesc: 'background: #000000; color: #E2E8F0; font-family: ' + MONO + '; padding: 1px 6px;'
         };
@@ -851,19 +850,19 @@
             console.log('%c>> STATUS: 三賢人全數合意 (ALL AGREED) // AI GOVERNANCE ASSESSMENT: PASSED (3/3)', S.statusPass);
             console.log('');
 
-            // 乾淨整塊深黑面板，徹底修復斷裂與文字折行
+            // 窄寬度自適應終端面板（寬度縮減至 53 字元以內，徹底解決折行）
             var panelContent = [
-                '┌── [ VERIFIED COMPLIANCE & DEFENSE BASELINE ] ─────────────────────────┐',
-                '│ • 1st Line (Delivery)  : [PASS] 100% In-Memory Sandbox • Zero Data Retention │',
-                '│ • 2nd Line (Risk/Legal): [PASS] ISO 42001/27701/27001 • EU AI Act • PCPD Fwk │',
-                '│ • 3rd Line (Assurance) : [PASS] CodeQL Matrix • OpenSSF Scorecard • Rekor Log │',
-                '└── [ SYSTEM INTEGRITY: 100% // NO RISK ANOMALY DETECTED ] ────────────┘'
+                '=== [ VERIFIED COMPLIANCE & DEFENSE BASELINE ] ===',
+                '• 1st Line (Delivery)  : [PASS] In-Memory / ZDR',
+                '• 2nd Line (Risk/Legal): [PASS] Triple-ISO / EU AI Act',
+                '• 3rd Line (Assurance) : [PASS] CodeQL / OpenSSF / Rekor',
+                '================ [ INTEGRITY: 100% ] ================'
             ].join('\n');
 
             console.log('%c' + panelContent, S.panelFull);
             console.log('');
 
-            // 免責提示（暗紅底黑框）
+            // 免責提示
             console.log('%c 🛑 LEGAL & SECURITY NOTICE // 普通法及防護警示 ', S.warnHead);
             console.log(
                 '%c【合規與調解提示】依據普通法與誠信原則，在主控台隨意貼上未知腳本形同盲目簽署無保留免責條款，易引發 Self-XSS 攻擊。\n本站恪守純本機記憶體運算與零資料留存（ZDR），無伺服器側日誌。請勿輕信第三方代碼。',
@@ -893,19 +892,19 @@
                 
                 console.log('%c[ AUDIT REPORT ] The Three Lines Health Assessment:', S.statusPass);
                 
-                // 純黑底 ASCII 專用終端表格（徹底解決原生 console.table 在白底 DevTools 泛白問題）
+                // 緊湊版純黑底 ASCII 表格（單行不超過 55 字元）
                 var auditTable = [
-                    '┌──────────────────┬──────────────────┬─────────────────────┬──────────────────┐',
-                    '│ Defense Line     │ Control Target   │ Real-time Status    │ Audit Standard   │',
-                    '├──────────────────┼──────────────────┼─────────────────────┼──────────────────┤',
-                    '│ 1st (Operations) │ Retention        │ ZERO (Pure Local)   │ ZDR Mandate      │',
-                    '│ 2nd (Compliance) │ AI & Privacy     │ ENFORCED            │ ISO 42001/27701  │',
-                    '│ 3rd (Assurance)  │ Supply Chain     │ HARDENED            │ OpenSSF / CodeQL │',
-                    '│ System Memory    │ JS Heap (Used)   │ ' + memInfo.padEnd(19) + ' │ Perf Cap         │',
-                    '└──────────────────┴──────────────────┴─────────────────────┴──────────────────┘'
+                    '┌──────────────────┬─────────────────────┬──────────────────┐',
+                    '│ Defense Line     │ Control / Status    │ Audit Standard   │',
+                    '├──────────────────┼─────────────────────┼──────────────────┤',
+                    '│ 1st (Operations) │ ZERO (Pure Local)   │ ZDR Mandate      │',
+                    '│ 2nd (Compliance) │ ENFORCED            │ ISO 42001/27701  │',
+                    '│ 3rd (Assurance)  │ HARDENED            │ OpenSSF / CodeQL │',
+                    '│ System Memory    │ Heap: ' + memInfo.padEnd(13) + ' │ Perf Budget      │',
+                    '└──────────────────┴─────────────────────┴──────────────────┘'
                 ].join('\n');
 
-                console.log('%c' + auditTable, 'background: #000000; color: #39FF14; font-family: ' + MONO + '; font-size: 11px; line-height: 1.4; padding: 6px 10px; display: block;');
+                console.log('%c' + auditTable, 'background: #000000; color: #39FF14; font-family: ' + MONO + '; font-size: 11px; line-height: 1.4; padding: 6px 10px; display: block; white-space: pre;');
                 return 'Audit complete: No anomalies or unauthorized data leaks detected.';
             },
             berserk: function () {
