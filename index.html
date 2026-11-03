@@ -789,7 +789,7 @@
             Serving transformation, governance, higher education and dispute resolution initiatives across Hong Kong and the Greater Bay Area.
         </div>
 
-    </main>
+  </main>
 
     <!-- ================================================================= -->
     <!-- 🟢 NERV / MAGI 三賢人 × The Three Lines Model AI 管治審計終端     -->
@@ -799,21 +799,24 @@
     (function () {
         'use strict';
 
+        // 跨平台高精度等寬字型棧，徹底解決 Safari / Firefox / Chrome 框線對齊誤差
+        var MONO_FONT = '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace';
+
         var STYLES = {
-            bannerTitle: 'background: #000000; color: #FF1E27; font-family: monospace; font-size: 15px; font-weight: 900; padding: 4px 8px; border-left: 4px solid #FF1E27;',
-            bannerSub: 'background: #1a0b2e; color: #39FF14; font-family: monospace; font-size: 11px; font-weight: bold; padding: 4px 8px; border: 1px solid #7B2CBF;',
+            bannerTitle: 'background: #000000; color: #FF1E27; font-family: ' + MONO_FONT + '; font-size: 15px; font-weight: 900; padding: 4px 8px; border-left: 4px solid #FF1E27;',
+            bannerSub: 'background: #1a0b2e; color: #39FF14; font-family: ' + MONO_FONT + '; font-size: 11px; font-weight: bold; padding: 4px 8px; border: 1px solid #7B2CBF;',
             magiBox: function (isPassed) {
                 var borderCol = isPassed ? '#39FF14' : '#FF1E27';
                 var bgCol = isPassed ? '#0a2312' : '#2b0a0d';
                 var textCol = isPassed ? '#39FF14' : '#FF1E27';
-                return 'background: ' + bgCol + '; color: ' + textCol + '; font-family: monospace; font-size: 10px; font-weight: bold; padding: 4px 8px; border: 1px solid ' + borderCol + '; border-radius: 4px;';
+                return 'background: ' + bgCol + '; color: ' + textCol + '; font-family: ' + MONO_FONT + '; font-size: 10px; font-weight: bold; padding: 4px 8px; border: 1px solid ' + borderCol + '; border-radius: 4px;';
             },
-            statusPassed: 'background: #39FF14; color: #000000; font-family: monospace; font-size: 12px; font-weight: 900; padding: 3px 8px; border-radius: 2px;',
-            normText: 'color: #7B2CBF; font-family: monospace; font-size: 11px; font-weight: 600;',
-            normVal: 'color: #39FF14; font-family: monospace; font-size: 11px; font-weight: bold;',
-            warnTitle: 'background: #FF1E27; color: #FFFFFF; font-family: monospace; font-size: 12px; font-weight: 900; padding: 2px 6px;',
-            warnText: 'color: #e2e8f0; font-family: monospace; font-size: 11px; line-height: 1.5;',
-            cmdTitle: 'background: #5A189A; color: #39FF14; font-family: monospace; font-size: 11px; font-weight: bold; padding: 2px 6px;'
+            statusPassed: 'background: #39FF14; color: #000000; font-family: ' + MONO_FONT + '; font-size: 12px; font-weight: 900; padding: 3px 8px; border-radius: 2px;',
+            normText: 'color: #7B2CBF; font-family: ' + MONO_FONT + '; font-size: 11px; font-weight: 600;',
+            normVal: 'color: #39FF14; font-family: ' + MONO_FONT + '; font-size: 11px; font-weight: bold;',
+            warnTitle: 'background: #FF1E27; color: #FFFFFF; font-family: ' + MONO_FONT + '; font-size: 12px; font-weight: 900; padding: 2px 6px;',
+            warnText: 'color: #e2e8f0; font-family: ' + MONO_FONT + '; font-size: 11px; line-height: 1.5;',
+            cmdTitle: 'background: #5A189A; color: #39FF14; font-family: ' + MONO_FONT + '; font-size: 11px; font-weight: bold; padding: 2px 6px;'
         };
 
         function renderMagiTerminal() {
@@ -825,7 +828,7 @@
                 '%c |_|\\_|_____|_| \\_\\ \\_/     |_|  |_|/_/  \\_\\\\_____|____| '
             ].join('\n');
 
-            var cEvaPurple = 'color: #7B2CBF; font-family: monospace; font-weight: bold; font-size: 10px;';
+            var cEvaPurple = 'color: #7B2CBF; font-family: ' + MONO_FONT + '; font-weight: bold; font-size: 10px;';
             console.log(asciiNERV, cEvaPurple, cEvaPurple, cEvaPurple, cEvaPurple, cEvaPurple);
 
             console.log(
@@ -945,11 +948,12 @@
             },
             provenance: function () {
                 console.log('%c[ CANONICAL PROVENANCE RECORDS ]', STYLES.bannerTitle);
-                console.log('• ORCID iD     : 0009-0006-0855-0842');
-                console.log('• PGP Key ID   : FFA3E47793F1CA32');
-                console.log('• Keybase      : https://keybase.io/jackylawck');
-                console.log('• HKCS W3C ID  : 019dd246-6cba-724a-8360-476e1965a1fb');
-                console.log('• Mastermind ID: c6abd067-0cd9-47c5-bcbd-8becd6e86429');
+                console.log('• ORCID iD       : https://orcid.org/0009-0006-0855-0842');
+                console.log('• PGP Key ID     : FFA3E47793F1CA32');
+                console.log('• PGP Raw Key    : https://keybase.io/jackylawck/pgp_keys.asc');
+                console.log('• Keybase Proof  : https://keybase.io/jackylawck');
+                console.log('• HKCS W3C ID    : https://hkcs.org.hk/verify/?id=019dd246-6cba-724a-8360-476e1965a1fb');
+                console.log('• Mastermind ID  : https://www.credly.com/badges/c6abd067-0cd9-47c5-bcbd-8becd6e86429/public_url');
                 return 'Cryptographic identity anchors verified.';
             }
         });
