@@ -794,7 +794,7 @@
 
     <!-- ================================================================= -->
     <!-- 🟢 NERV / MAGI 三賢人 × The Three Lines Model AI 管治審計終端     -->
-    <!-- 100% Client-Side Pure JS / 自帶使徒黑底保護 / Zero Telemetry      -->
+    <!-- 100% 原作色彩對齊：NERV 警戒紅 × MAGI 琥珀橙 × 戰術純黑沙盒        -->
     <!-- ================================================================= -->
     <script>
     (function () {
@@ -802,44 +802,48 @@
 
         var MONO = '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace';
 
+        // 嚴格對齊 EVA 原作：純黑底 (#000000)、NERV 警戒紅 (#FF1E27)、MAGI 琥珀橙 (#FF7900)
         var S = {
-            ascii: 'background: #000000; color: #7B2CBF; font-family: ' + MONO + '; font-weight: bold; font-size: 10px; line-height: 1.25;',
-            title: 'background: #000000; color: #FF1E27; font-family: ' + MONO + '; font-size: 14px; font-weight: 900; padding: 6px 10px; border-left: 5px solid #FF1E27; border-top: 1px solid #333; border-right: 1px solid #333; display: block;',
-            sub: 'background: #000000; color: #39FF14; font-family: ' + MONO + '; font-size: 11px; font-weight: bold; padding: 4px 10px; border-left: 5px solid #7B2CBF; border-bottom: 1px solid #333; border-right: 1px solid #333; display: block;',
-            magiUnit: 'background: #000000; color: #39FF14; font-family: ' + MONO + '; font-size: 11px; font-weight: bold; padding: 4px 8px; border: 1px solid #39FF14; border-radius: 3px;',
-            statusPass: 'background: #39FF14; color: #000000; font-family: ' + MONO + '; font-size: 12px; font-weight: 900; padding: 4px 10px; border-radius: 2px;',
+            // NERV 粗體 ASCII 字符面板
+            ascii: 'background: #000000; color: #FF1E27; font-family: ' + MONO + '; font-weight: 900; font-size: 11px; line-height: 1.15; padding: 10px 14px; border-left: 5px solid #FF1E27; border-top: 1px solid #222; border-right: 1px solid #222; display: block; white-space: pre;',
             
-            // 緊湊一體化深黑面板，強制保留預格式化防止折行
-            panelFull: 'background: #050508; color: #D8B4FE; font-family: ' + MONO + '; font-size: 11px; line-height: 1.6; padding: 8px 12px; border-left: 4px solid #7B2CBF; border-right: 1px solid #222; border-top: 1px solid #222; border-bottom: 1px solid #222; display: block; white-space: pre;',
+            // 標題與身份鏈條
+            title: 'background: #000000; color: #FF1E27; font-family: ' + MONO + '; font-size: 13px; font-weight: 900; padding: 6px 10px; border-left: 5px solid #FF1E27; border-right: 1px solid #222; display: block;',
+            sub: 'background: #000000; color: #FF7900; font-family: ' + MONO + '; font-size: 11px; font-weight: bold; padding: 4px 10px; border-left: 5px solid #FF7900; border-bottom: 1px solid #222; border-right: 1px solid #222; display: block;',
             
-            // 警示黑底框
+            // MAGI 三賢人琥珀橙葉片模組
+            magiUnit: 'background: #000000; color: #FF7900; font-family: ' + MONO + '; font-size: 11px; font-weight: 900; padding: 4px 8px; border: 1.5px solid #FF7900; border-radius: 2px;',
+            statusPass: 'background: #FF7900; color: #000000; font-family: ' + MONO + '; font-size: 12px; font-weight: 900; padding: 4px 10px; border-radius: 2px;',
+            
+            // 三道防線面板（純黑底 + 琥珀橙 / 刻度綠）
+            panelFull: 'background: #000000; color: #FFB347; font-family: ' + MONO + '; font-size: 11px; line-height: 1.6; padding: 8px 12px; border-left: 5px solid #FF7900; border-right: 1px solid #222; border-top: 1px solid #222; border-bottom: 1px solid #222; display: block; white-space: pre;',
+            
+            // 免責提示（NERV 警戒暗紅）
             warnHead: 'background: #FF1E27; color: #FFFFFF; font-family: ' + MONO + '; font-size: 12px; font-weight: 900; padding: 3px 8px; display: block;',
-            warnBody: 'background: #110305; color: #FCA5A5; font-family: ' + MONO + '; font-size: 11px; line-height: 1.6; padding: 8px 10px; border-left: 4px solid #FF1E27; border-bottom: 1px solid #FF1E27; border-right: 1px solid #222; display: block;',
+            warnBody: 'background: #0d0002; color: #FCA5A5; font-family: ' + MONO + '; font-size: 11px; line-height: 1.6; padding: 8px 10px; border-left: 5px solid #FF1E27; border-bottom: 1px solid #FF1E27; border-right: 1px solid #222; display: block;',
             
             // 指令提示條
-            cliBar: 'background: #1a0b2e; color: #39FF14; font-family: ' + MONO + '; font-size: 11px; font-weight: bold; padding: 6px 10px; border: 1px solid #7B2CBF; display: block;',
+            cliBar: 'background: #000000; color: #00E575; font-family: ' + MONO + '; font-size: 11px; font-weight: bold; padding: 6px 10px; border: 1px solid #FF7900; border-left: 5px solid #00E575; display: block;',
             
-            // help 與 audit 專用
-            cmdKey: 'background: #15441E; color: #39FF14; font-weight: bold; font-family: ' + MONO + '; padding: 1px 6px; border-radius: 2px;',
+            // CLI 指令膠囊
+            cmdKey: 'background: #FF7900; color: #000000; font-weight: 900; font-family: ' + MONO + '; padding: 1px 6px; border-radius: 2px;',
             cmdDesc: 'background: #000000; color: #E2E8F0; font-family: ' + MONO + '; padding: 1px 6px;'
         };
 
         function renderMagiTerminal() {
             var asciiNERV = [
-                '%c  _   _ _____ ______     __   __  __          _____ _____ ',
-                '%c | \\ | | ____|  _ \\ \\   / /  |  \\/  |   /\\   / ____|_   _|',
-                '%c |  \\| |  _| | |_) \\ \\_/ /   | \\  / |  /  \\ | |  __  | |  ',
-                '%c | . ` | |___|  _ < \\   /    | |\\/| | / /\\ \\| | |_ | | |  ',
-                '%c |_|\\_|_____|_| \\_\\ \\_/     |_|  |_|/_/  \\_\\\\_____|____| '
+                ' _  _ ____ ____ _  _   _  _ ____ ____ _ ',
+                ' |\\ | |___ |--< |  |   |\\/| |__| | __ | ',
+                ' | \\| |___ |  \\  \\/    |  | |  | |__] | '
             ].join('\n');
 
-            console.log(asciiNERV, S.ascii, S.ascii, S.ascii, S.ascii, S.ascii);
+            console.log('%c' + asciiNERV, S.ascii);
 
             console.log('%c[ NERV TACTICAL CENTER // MAGI AI 管治審計終端 ]', S.title);
             console.log('%cPROVENANCE: PGP [FFA3E47793F1CA32] • IIA THE THREE LINES MODEL VERIFIED', S.sub);
             console.log('');
 
-            // 三賢人合意矩陣
+            // MAGI 三賢人合意矩陣 (原作琥珀橙)
             console.log(
                 '%c[ MELCHIOR-1: 1st Line (DevSecOps) ] AGREED %c  %c[ BALTHASAR-2: 2nd Line (Risk & Compliance) ] AGREED %c  %c[ CASPER-3: 3rd Line (Internal Audit) ] AGREED ',
                 S.magiUnit, '',
@@ -850,7 +854,7 @@
             console.log('%c>> STATUS: 三賢人全數合意 (ALL AGREED) // AI GOVERNANCE ASSESSMENT: PASSED (3/3)', S.statusPass);
             console.log('');
 
-            // 窄寬度自適應終端面板（寬度縮減至 53 字元以內，徹底解決折行）
+            // 窄寬度自適應終端面板 (寬度 52 字元以內，徹底防折行)
             var panelContent = [
                 '=== [ VERIFIED COMPLIANCE & DEFENSE BASELINE ] ===',
                 '• 1st Line (Delivery)  : [PASS] In-Memory / ZDR',
@@ -862,7 +866,7 @@
             console.log('%c' + panelContent, S.panelFull);
             console.log('');
 
-            // 免責提示
+            // 普通法與調解員視角的 Self-XSS 提示
             console.log('%c 🛑 LEGAL & SECURITY NOTICE // 普通法及防護警示 ', S.warnHead);
             console.log(
                 '%c【合規與調解提示】依據普通法與誠信原則，在主控台隨意貼上未知腳本形同盲目簽署無保留免責條款，易引發 Self-XSS 攻擊。\n本站恪守純本機記憶體運算與零資料留存（ZDR），無伺服器側日誌。請勿輕信第三方代碼。',
@@ -870,7 +874,7 @@
             );
             console.log('');
 
-            // 指令引導條
+            // CLI 指令引導條
             console.log('%c💡 終端互動指令：請在下方輸入 law.help() 查看隱藏指令集。', S.cliBar);
         }
 
@@ -883,7 +887,7 @@
                 console.log('%claw.berserk()%c - 啟動初號機暴走狀態（全螢幕視覺光暈共鳴）', S.cmdKey, S.cmdDesc);
                 console.log('%claw.magi()%c - 重新輪詢三賢人 (MELCHIOR, BALTHASAR, CASPER) 共識狀態', S.cmdKey, S.cmdDesc);
                 console.log('%claw.provenance()%c - 檢索 PGP 身份鏈與 Triple-ISO 認證存證', S.cmdKey, S.cmdDesc);
-                console.log('%c💡 提示：若系統開啟「減少動態效果 (Reduce Motion)」，暴走光暈將被自動抑制。', 'color:#64748b; font-style:italic; font-size:11px; font-family:' + MONO);
+                console.log('%c💡 提示：若系統開啟「減少動態效果 (Reduce Motion)」，暴走光暈將被自動抑制。', 'color:#888888; font-style:italic; font-size:11px; font-family:' + MONO);
                 return 'Type any command above to proceed.';
             },
             audit: function () {
@@ -892,7 +896,7 @@
                 
                 console.log('%c[ AUDIT REPORT ] The Three Lines Health Assessment:', S.statusPass);
                 
-                // 緊湊版純黑底 ASCII 表格（單行不超過 55 字元）
+                // MAGI 琥珀橙黑底 ASCII 表格
                 var auditTable = [
                     '┌──────────────────┬─────────────────────┬──────────────────┐',
                     '│ Defense Line     │ Control / Status    │ Audit Standard   │',
@@ -904,7 +908,7 @@
                     '└──────────────────┴─────────────────────┴──────────────────┘'
                 ].join('\n');
 
-                console.log('%c' + auditTable, 'background: #000000; color: #39FF14; font-family: ' + MONO + '; font-size: 11px; line-height: 1.4; padding: 6px 10px; display: block; white-space: pre;');
+                console.log('%c' + auditTable, 'background: #000000; color: #FF7900; font-family: ' + MONO + '; font-size: 11px; line-height: 1.4; padding: 6px 10px; display: block; white-space: pre;');
                 return 'Audit complete: No anomalies or unauthorized data leaks detected.';
             },
             berserk: function () {
@@ -941,7 +945,7 @@
                     docEl.style.filter = originFilter;
                     docEl.style.transition = originTransition;
                     berserkTimer = null;
-                    console.log('%c[ EVA-01 RE-CONTAINED // 初號機回到抑制拘束架構 ]', 'color:#166534; font-weight:bold; font-family:' + MONO);
+                    console.log('%c[ EVA-01 RE-CONTAINED // 初號機回到抑制拘束架構 ]', 'color:#00E575; font-weight:bold; font-family:' + MONO);
                 }, 1600);
 
                 return 'Sync Rate exceeded 400%. EVA-01 Berserk mode engaged.';
