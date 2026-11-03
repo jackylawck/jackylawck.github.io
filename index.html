@@ -793,7 +793,7 @@
   </main>
 
     <!-- ================================================================= -->
-    <!-- 🟢 MAGI 三賢人 × The Three Lines Model AI 管治審計終端            -->
+    <!-- 🟢 MAGI 三賢人 × The Three Lines Model AI 管治審計終端 (中英雙語)    -->
     <!-- 100% Client-Side Pure JS / 自帶使徒黑底保護 / Zero Telemetry      -->
     <!-- ================================================================= -->
     <script>
@@ -808,7 +808,7 @@
             sub: 'background: #000000; color: #FF7900; font-family: ' + MONO + '; font-size: 11px; font-weight: bold; padding: 4px 10px; border-left: 5px solid #FF7900; border-bottom: 1px solid #222; border-right: 1px solid #222; display: block;',
             
             // MAGI 三賢人琥珀橙葉片模組
-            magiUnit: 'background: #000000; color: #FF7900; font-family: ' + MONO + '; font-size: 11px; font-weight: 900; padding: 4px 8px; border: 1.5px solid #FF7900; border-radius: 2px;',
+            magiUnit: 'background: #000000; color: #FF7900; font-family: ' + MONO + '; font-size: 10.5px; font-weight: 900; padding: 4px 8px; border: 1.5px solid #FF7900; border-radius: 2px;',
             statusPass: 'background: #FF7900; color: #000000; font-family: ' + MONO + '; font-size: 12px; font-weight: 900; padding: 4px 10px; border-radius: 2px;',
             
             // 三道防線面板（純黑底 + 琥珀橙）
@@ -827,82 +827,82 @@
         };
 
         function renderMagiTerminal() {
-            // 乾淨俐落首行：直出戰術終端標題
-            console.log('%c[ TACTICAL CENTER // MAGI AI 管治審計終端 ]', S.title);
-            console.log('%cPROVENANCE: PGP [FFA3E47793F1CA32] • IIA THE THREE LINES MODEL VERIFIED', S.sub);
+            // 中英雙語戰術終端標題
+            console.log('%c[ TACTICAL CENTER // MAGI AI 管治審計終端 (GOVERNANCE AUDIT) ]', S.title);
+            console.log('%cPROVENANCE: PGP [FFA3E47793F1CA32] • IIA THE THREE LINES MODEL (三道防線認證)', S.sub);
             console.log('');
 
-            // MAGI 三賢人合意矩陣 (琥珀戰術橙)
+            // MAGI 三賢人合意矩陣 (中英合意狀態)
             console.log(
-                '%c[ MELCHIOR-1: 1st Line (DevSecOps) ] AGREED %c  %c[ BALTHASAR-2: 2nd Line (Risk & Compliance) ] AGREED %c  %c[ CASPER-3: 3rd Line (Internal Audit) ] AGREED ',
+                '%c[ MELCHIOR-1: 一線研發 (DevSecOps) ] 合意 AGREED %c  %c[ BALTHASAR-2: 二線風控 (Risk & Legal) ] 合意 AGREED %c  %c[ CASPER-3: 三線審計 (Internal Audit) ] 合意 AGREED ',
                 S.magiUnit, '',
                 S.magiUnit, '',
                 S.magiUnit
             );
             console.log('');
-            console.log('%c>> STATUS: 三賢人全數合意 (ALL AGREED) // AI GOVERNANCE ASSESSMENT: PASSED (3/3)', S.statusPass);
+            console.log('%c>> STATUS: 三賢人全數合意 (ALL AGREED) // AI 管治審計通過 (PASSED 3/3)', S.statusPass);
             console.log('');
 
-            // 窄寬度自適應終端面板 (寬度 52 字元以內，徹底防折行)
+            // 中英雙語緊湊面板 (54 字符以內，杜絕窄螢幕換行破版)
             var panelContent = [
-                '=== [ VERIFIED COMPLIANCE & DEFENSE BASELINE ] ===',
-                '• 1st Line (Delivery)  : [PASS] In-Memory / ZDR',
-                '• 2nd Line (Risk/Legal): [PASS] Triple-ISO / EU AI Act',
-                '• 3rd Line (Assurance) : [PASS] CodeQL / OpenSSF / Rekor',
-                '================ [ INTEGRITY: 100% ] ================'
+                '==== [ COMPLIANCE & DEFENSE BASELINE / 合規基準矩陣 ] ====',
+                '• 1st Line (一線交付): [PASS] 純記憶體運算 In-Memory / ZDR',
+                '• 2nd Line (二線合規): [PASS] Triple-ISO / 歐盟法案 EU AI Act',
+                '• 3rd Line (三線審計): [PASS] CodeQL / OpenSSF / Rekor 存證',
+                '================== [ INTEGRITY: 100% ] =================='
             ].join('\n');
 
             console.log('%c' + panelContent, S.panelFull);
             console.log('');
 
-            // 普通法與調解員視角的 Self-XSS 提示
-            console.log('%c 🛑 LEGAL & SECURITY NOTICE // 普通法及防護警示 ', S.warnHead);
+            // 普通法與調解員視角的 Self-XSS 提示（中英雙語警示）
+            console.log('%c 🛑 LEGAL & SECURITY NOTICE // 普通法及資安防護警示 ', S.warnHead);
             console.log(
-                '%c【合規與調解提示】依據普通法與誠信原則，在主控台隨意貼上未知腳本形同盲目簽署無保留免責條款，易引發 Self-XSS 攻擊。\n本站恪守純本機記憶體運算與零資料留存（ZDR），無伺服器側日誌。請勿輕信第三方代碼。',
+                '%c【合規與調解提示】依據普通法與誠信原則，在主控台隨意貼上未知腳本形同盲目簽署無保留免責條款，易引發 Self-XSS 攻擊。\n本站恪守純本機記憶體運算與零資料留存（ZDR），無伺服器側日誌。請勿輕信第三方代碼。\n[Notice] Never paste untrusted scripts into the console. This site operates with Zero Data Retention (ZDR) and pure client-side sandboxing.',
                 S.warnBody
             );
             console.log('');
 
-            // CLI 指令引導條
-            console.log('%c💡 終端互動指令：請在下方輸入 law.help() 查看隱藏指令集。', S.cliBar);
+            // CLI 指令引導條 (中英雙語)
+            console.log('%c💡 終端互動指令 (CLI): 請輸入 law.help() 查看功能 / Type law.help() for suite.', S.cliBar);
         }
 
         var berserkTimer = null;
 
         window.law = Object.freeze({
             help: function () {
-                console.log('%c[ MAGI CONSOLE CLI INTERACTION SUITE ]', S.sub);
-                console.log('%claw.audit()%c - 執行即時本機客戶端純淨度與三道防線體檢', S.cmdKey, S.cmdDesc);
-                console.log('%claw.berserk()%c - 啟動初號機暴走狀態（全螢幕視覺光暈共鳴）', S.cmdKey, S.cmdDesc);
-                console.log('%claw.magi()%c - 重新輪詢三賢人 (MELCHIOR, BALTHASAR, CASPER) 共識狀態', S.cmdKey, S.cmdDesc);
-                console.log('%claw.provenance()%c - 檢索 PGP 身份鏈與 Triple-ISO 認證存證', S.cmdKey, S.cmdDesc);
-                console.log('%c💡 提示：若系統開啟「減少動態效果 (Reduce Motion)」，暴走光暈將被自動抑制。', 'color:#888888; font-style:italic; font-size:11px; font-family:' + MONO);
-                return 'Type any command above to proceed.';
+                console.log('%c[ MAGI CONSOLE CLI INTERACTION SUITE / 互動指令集 ]', S.sub);
+                console.log('%claw.audit()%c - 執行本機純淨度與三道防線體檢 / Run health audit', S.cmdKey, S.cmdDesc);
+                console.log('%claw.berserk()%c - 啟動初號機暴走狀態 / Engage EVA-01 Berserk mode', S.cmdKey, S.cmdDesc);
+                console.log('%claw.magi()%c - 重新輪詢三賢人共識狀態 / Re-poll MAGI consensus', S.cmdKey, S.cmdDesc);
+                console.log('%claw.provenance()%c - 檢索 PGP 身份鏈與認證存證 / View identity anchors', S.cmdKey, S.cmdDesc);
+                console.log('%c💡 提示 (Note): 若系統開啟「減少動態效果 (Reduce Motion)」，暴走光暈將被自動抑制。', 'color:#888888; font-style:italic; font-size:11px; font-family:' + MONO);
+                return 'Type any command above to proceed / 請輸入上述任一指令執行。';
             },
             audit: function () {
                 var memInfo = (window.performance && window.performance.memory) ? 
                     (window.performance.memory.usedJSHeapSize / 1048576).toFixed(2) + ' MB' : 'Protected';
                 
-                console.log('%c[ AUDIT REPORT ] The Three Lines Health Assessment:', S.statusPass);
+                console.log('%c[ AUDIT REPORT ] The Three Lines Assessment (三道防線審計報表):', S.statusPass);
                 
-                // 緊湊版純黑底 ASCII 表格（單行不超過 55 字元）
+                // 中英雙語 ASCII 表格 (嚴格等寬對齊)
                 var auditTable = [
-                    '┌──────────────────┬─────────────────────┬──────────────────┐',
-                    '│ Defense Line     │ Control / Status    │ Audit Standard   │',
-                    '├──────────────────┼─────────────────────┼──────────────────┤',
-                    '│ 1st (Operations) │ ZERO (Pure Local)   │ ZDR Mandate      │',
-                    '│ 2nd (Compliance) │ ENFORCED            │ ISO 42001/27701  │',
-                    '│ 3rd (Assurance)  │ HARDENED            │ OpenSSF / CodeQL │',
-                    '│ System Memory    │ Heap: ' + memInfo.padEnd(13) + ' │ Perf Budget      │',
-                    '└──────────────────┴─────────────────────┴──────────────────┘'
+                    '┌──────────────────────┬────────────────────────┬──────────────────┐',
+                    '│ 防線 (Defense Line)  │ 管控目標 (Target)      │ 審計標準 (Std)   │',
+                    '├──────────────────────┼────────────────────────┼──────────────────┤',
+                    '│ 1st: 業務運營 (Ops)  │ 零留存 ZERO (Local)    │ ZDR Mandate      │',
+                    '│ 2nd: 法規合規 (Comp) │ 全面落實 ENFORCED      │ ISO 42001/27701  │',
+                    '│ 3rd: 獨立保證 (Assur)│ 供應鏈固化 HARDENED    │ OpenSSF / CodeQL │',
+                    '│ 系統內存 (JS Heap)   │ 佔用量: ' + memInfo.padEnd(14) + ' │ Perf Budget      │',
+                    '└──────────────────────┴────────────────────────┴──────────────────┘'
                 ].join('\n');
 
                 console.log('%c' + auditTable, 'background: #000000; color: #FF7900; font-family: ' + MONO + '; font-size: 11px; line-height: 1.4; padding: 6px 10px; display: block; white-space: pre;');
-                return 'Audit complete: No anomalies or unauthorized data leaks detected.';
+                return 'Audit complete: No anomalies or unauthorized leaks detected / 審計完成：未檢測到異常或未授權資料洩漏。';
             },
             berserk: function () {
                 if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                    console.log('%c[ SYSTEM NOTICE ] Motion reduced by OS settings. Berserk visual suppressed.', 'color:#FF1E27; font-weight:bold;');
+                    console.log('%c[ SYSTEM NOTICE ] Motion reduced by OS settings. Berserk visual suppressed / 系統已開啟減弱動態，視覺效果已抑制。', 'color:#FF1E27; font-weight:bold;');
                     return 'Berserk mode (visual effect suppressed for accessibility).';
                 }
 
@@ -911,7 +911,7 @@
                 }
 
                 console.log(
-                    '%c[ WARNING: SYNCHRONIZATION RATE EXCEEDED 400% // 暴走状態突入 ]',
+                    '%c[ WARNING: SYNCHRONIZATION RATE EXCEEDED 400% // 同步率超過 400% 暴走狀態突入 ]',
                     'background:#FF1E27; color:#FFFFFF; font-weight:900; font-size:13px; padding:4px 8px; font-family:' + MONO
                 );
 
@@ -937,21 +937,21 @@
                     console.log('%c[ EVA-01 RE-CONTAINED // 初號機回到抑制拘束架構 ]', 'color:#00E575; font-weight:bold; font-family:' + MONO);
                 }, 1600);
 
-                return 'Sync Rate exceeded 400%. EVA-01 Berserk mode engaged.';
+                return 'Sync Rate exceeded 400%. EVA-01 Berserk mode engaged / 初號機暴走模式模擬啟動。';
             },
             magi: function () {
                 renderMagiTerminal();
-                return 'MAGI Supercomputing Consensus Re-polled.';
+                return 'MAGI Consensus Re-polled / 三賢人共識重新輪詢完成。';
             },
             provenance: function () {
-                console.log('%c[ CANONICAL PROVENANCE RECORDS ]', S.title);
+                console.log('%c[ CANONICAL PROVENANCE RECORDS / 權威身份與認證存證鏈 ]', S.title);
                 console.log('• ORCID iD       : https://orcid.org/0009-0006-0855-0842');
                 console.log('• PGP Key ID     : FFA3E47793F1CA32');
                 console.log('• PGP Raw Key    : https://keybase.io/jackylawck/pgp_keys.asc');
                 console.log('• Keybase Proof  : https://keybase.io/jackylawck');
                 console.log('• HKCS W3C ID    : https://hkcs.org.hk/verify/?id=019dd246-6cba-724a-8360-476e1965a1fb');
                 console.log('• Mastermind ID  : https://www.credly.com/badges/c6abd067-0cd9-47c5-bcbd-8becd6e86429/public_url');
-                return 'Cryptographic identity anchors verified.';
+                return 'Cryptographic identity anchors verified / 密碼學身分存證鏈檢驗通過。';
             }
         });
 
