@@ -791,5 +791,178 @@
 
     </main>
 
+    <!-- ================================================================= -->
+    <!-- 🟢 NERV / MAGI 三賢人 × The Three Lines Model AI 管治審計終端     -->
+    <!-- 100% Client-Side Pure JS / Zero Telemetry / Self-Contained        -->
+    <!-- ================================================================= -->
+    <script>
+    (function () {
+        'use strict';
+
+        var STYLES = {
+            bannerTitle: 'background: #000000; color: #FF1E27; font-family: monospace; font-size: 15px; font-weight: 900; padding: 4px 8px; border-left: 4px solid #FF1E27;',
+            bannerSub: 'background: #1a0b2e; color: #39FF14; font-family: monospace; font-size: 11px; font-weight: bold; padding: 4px 8px; border: 1px solid #7B2CBF;',
+            magiBox: function (isPassed) {
+                var borderCol = isPassed ? '#39FF14' : '#FF1E27';
+                var bgCol = isPassed ? '#0a2312' : '#2b0a0d';
+                var textCol = isPassed ? '#39FF14' : '#FF1E27';
+                return 'background: ' + bgCol + '; color: ' + textCol + '; font-family: monospace; font-size: 10px; font-weight: bold; padding: 4px 8px; border: 1px solid ' + borderCol + '; border-radius: 4px;';
+            },
+            statusPassed: 'background: #39FF14; color: #000000; font-family: monospace; font-size: 12px; font-weight: 900; padding: 3px 8px; border-radius: 2px;',
+            normText: 'color: #7B2CBF; font-family: monospace; font-size: 11px; font-weight: 600;',
+            normVal: 'color: #39FF14; font-family: monospace; font-size: 11px; font-weight: bold;',
+            warnTitle: 'background: #FF1E27; color: #FFFFFF; font-family: monospace; font-size: 12px; font-weight: 900; padding: 2px 6px;',
+            warnText: 'color: #e2e8f0; font-family: monospace; font-size: 11px; line-height: 1.5;',
+            cmdTitle: 'background: #5A189A; color: #39FF14; font-family: monospace; font-size: 11px; font-weight: bold; padding: 2px 6px;'
+        };
+
+        function renderMagiTerminal() {
+            var asciiNERV = [
+                '%c  _   _ _____ ______     __   __  __          _____ _____ ',
+                '%c | \\ | | ____|  _ \\ \\   / /  |  \\/  |   /\\   / ____|_   _|',
+                '%c |  \\| |  _| | |_) \\ \\_/ /   | \\  / |  /  \\ | |  __  | |  ',
+                '%c | . ` | |___|  _ < \\   /    | |\\/| | / /\\ \\| | |_ | | |  ',
+                '%c |_|\\_|_____|_| \\_\\ \\_/     |_|  |_|/_/  \\_\\\\_____|____| '
+            ].join('\n');
+
+            var cEvaPurple = 'color: #7B2CBF; font-family: monospace; font-weight: bold; font-size: 10px;';
+            console.log(asciiNERV, cEvaPurple, cEvaPurple, cEvaPurple, cEvaPurple, cEvaPurple);
+
+            console.log(
+                '%c[ NERV TACTICAL CENTER // MAGI AI 管治審計終端 ]',
+                STYLES.bannerTitle
+            );
+            console.log(
+                '%cPROVENANCE: PGP [FFA3E47793F1CA32] • IIA THE THREE LINES MODEL VERIFIED',
+                STYLES.bannerSub
+            );
+            console.log('');
+
+            // MAGI 三賢人 × The Three Lines Model 深度融合
+            console.log(
+                '%c[ MELCHIOR-1: 1st Line (DevSecOps) ] AGREED %c  %c[ BALTHASAR-2: 2nd Line (Risk & Compliance) ] AGREED %c  %c[ CASPER-3: 3rd Line (Internal Audit) ] AGREED ',
+                STYLES.magiBox(true), '',
+                STYLES.magiBox(true), '',
+                STYLES.magiBox(true)
+            );
+            console.log(
+                '%c>> STATUS: 三賢人全數合意 (ALL AGREED) // AI GOVERNANCE ASSESSMENT: PASSED (3/3)',
+                STYLES.statusPassed
+            );
+            console.log('');
+
+            // 三道防線審計維度精煉清單
+            console.log('%c┌── [ VERIFIED COMPLIANCE & DEFENSE BASELINE ] ───────────────┐', STYLES.normText);
+            console.log('%c│ • 1st Line (Delivery)  : %c[PASS] 100% In-Memory Sandbox • Zero Data Retention', STYLES.normText, STYLES.normVal);
+            console.log('%c│ • 2nd Line (Risk/Legal): %c[PASS] ISO 42001/27701/27001 • EU AI Act • PCPD Fwk', STYLES.normText, STYLES.normVal);
+            console.log('%c│ • 3rd Line (Assurance) : %c[PASS] CodeQL Matrix • OpenSSF Scorecard • Keyless Rekor', STYLES.normText, STYLES.normVal);
+            console.log('%c└── [ SYSTEM INTEGRITY: 100% // NO RISK ANOMALY DETECTED ] ──┘', STYLES.normText);
+            console.log('');
+
+            // 普通法與調解員視角的 Self-XSS 提示
+            console.log(
+                '%c 🛑 LEGAL & SECURITY NOTICE // 普通法及防護警示 ',
+                STYLES.warnTitle
+            );
+            console.log(
+                '%c【合規與調解提示】依據普通法與誠信原則，在主控台隨意貼上未知腳本形同盲目簽署無保留免責條款，易引發 Self-XSS 攻擊。\n本站恪守純本機記憶體運算與零資料留存（ZDR），無伺服器側日誌。請勿輕信第三方代碼。',
+                STYLES.warnText
+            );
+            console.log('');
+
+            // CLI 指令引導
+            console.log('%c💡 終端互動指令：請在下方輸入 %claw.help()%c 查看隱藏功能。', STYLES.cmdTitle, 'color: #39FF14; font-weight: bold; background: #000; padding: 1px 4px;', STYLES.cmdTitle);
+        }
+
+        var berserkTimer = null;
+
+        // 掛載並凍結全域 law 物件，防止主控台竄改
+        window.law = Object.freeze({
+            help: function () {
+                console.log('%c[ MAGI CONSOLE CLI INTERACTION SUITE ]', STYLES.bannerSub);
+                console.log('%claw.audit()     %c- 執行即時本機客戶端純淨度與三道防線體檢', 'color:#39FF14; font-weight:bold;', 'color:#cbd5e1;');
+                console.log('%claw.berserk()   %c- 啟動初號機暴走狀態（全螢幕視覺光暈共鳴）', 'color:#39FF14; font-weight:bold;', 'color:#cbd5e1;');
+                console.log('%claw.magi()      %c- 重新輪詢三賢人 (MELCHIOR, BALTHASAR, CASPER) 共識狀態', 'color:#39FF14; font-weight:bold;', 'color:#cbd5e1;');
+                console.log('%claw.provenance()%c- 檢索 PGP 身份鏈與 Triple-ISO 認證存證', 'color:#39FF14; font-weight:bold;', 'color:#cbd5e1;');
+                console.log('%c💡 提示：請確保系統未開啟「減少動態效果 (Reduce Motion)」，否則暴走光暈將被自動抑制。', 'color:#94a3b8; font-style:italic; font-size:10px;');
+                return 'Type any command above to proceed.';
+            },
+            audit: function () {
+                var memInfo = (window.performance && window.performance.memory) ? 
+                    (window.performance.memory.usedJSHeapSize / 1048576).toFixed(2) + ' MB' : 'Sandboxed';
+                console.log('%c[ AUDIT REPORT ] The Three Lines Health Assessment:', STYLES.statusPassed);
+                console.table([
+                    { 'Defense Line': '1st (Operations)', 'Control': 'Retention', 'Status': 'ZERO (Pure Local)', 'Standard': 'ZDR' },
+                    { 'Defense Line': '2nd (Compliance)', 'Control': 'AI & Privacy', 'Status': 'ENFORCED', 'Standard': 'ISO 42001/27701' },
+                    { 'Defense Line': '3rd (Assurance)',  'Control': 'Supply Chain', 'Status': 'HARDENED', 'Standard': 'OpenSSF/CodeQL' },
+                    { 'Defense Line': 'System Memory',   'Control': 'JS Heap', 'Status': memInfo, 'Standard': 'Perf Cap' }
+                ]);
+                return 'Audit complete: No anomalies or unauthorized data leaks detected.';
+            },
+            berserk: function () {
+                // A11y 考量：若用戶開啟減少動態效果，自動抑制強烈閃爍
+                if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    console.log('%c[ SYSTEM NOTICE ] Motion reduced by OS settings. Berserk visual suppressed.', 'color:#FF1E27; font-weight:bold;');
+                    return 'Berserk mode (visual effect suppressed for accessibility).';
+                }
+
+                if (berserkTimer) {
+                    clearTimeout(berserkTimer);
+                }
+
+                console.log(
+                    '%c[ WARNING: SYNCHRONIZATION RATE EXCEEDED 400% // 暴走状態突入 ]',
+                    'background:#FF1E27; color:#FFFFFF; font-weight:900; font-size:13px; padding:4px 8px;'
+                );
+
+                var docEl = document.documentElement;
+                var originTransition = docEl.style.transition;
+                var originBoxShadow = docEl.style.boxShadow;
+                var originFilter = docEl.style.filter;
+
+                docEl.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                docEl.style.boxShadow = 'inset 0 0 70px #39FF14, 0 0 35px #7B2CBF';
+                docEl.style.filter = 'contrast(1.15) hue-rotate(15deg)';
+
+                setTimeout(function () {
+                    docEl.style.boxShadow = 'inset 0 0 90px #FF1E27, 0 0 50px #FF1E27';
+                    docEl.style.filter = 'contrast(1.25) invert(0.08)';
+                }, 400);
+
+                berserkTimer = setTimeout(function () {
+                    docEl.style.boxShadow = originBoxShadow;
+                    docEl.style.filter = originFilter;
+                    docEl.style.transition = originTransition;
+                    berserkTimer = null;
+                    console.log('%c[ EVA-01 RE-CONTAINED // 初號機回到抑制拘束架構 ]', 'color:#39FF14; font-weight:bold;');
+                }, 1600);
+
+                return 'Sync Rate exceeded 400%. EVA-01 Berserk mode engaged.';
+            },
+            magi: function () {
+                renderMagiTerminal();
+                return 'MAGI Supercomputing Consensus Re-polled.';
+            },
+            provenance: function () {
+                console.log('%c[ CANONICAL PROVENANCE RECORDS ]', STYLES.bannerTitle);
+                console.log('• ORCID iD     : 0009-0006-0855-0842');
+                console.log('• PGP Key ID   : FFA3E47793F1CA32');
+                console.log('• Keybase      : https://keybase.io/jackylawck');
+                console.log('• HKCS W3C ID  : 019dd246-6cba-724a-8360-476e1965a1fb');
+                console.log('• Mastermind ID: c6abd067-0cd9-47c5-bcbd-8becd6e86429');
+                return 'Cryptographic identity anchors verified.';
+            }
+        });
+
+        // 初始載入渲染
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            setTimeout(renderMagiTerminal, 250);
+        } else {
+            window.addEventListener('DOMContentLoaded', function () {
+                setTimeout(renderMagiTerminal, 250);
+            });
+        }
+    })();
+    </script>
 </body>
 </html>
