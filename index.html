@@ -802,7 +802,7 @@
 
         var MONO = '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace';
 
-        // 核心：所有文字自帶黑底 (#000000 或 #0a0414)，徹底免疫白底 DevTools
+        // 樣式庫：全數嚴格自帶黑底 (#000000 或 #0a0414)，徹底封殺白底透出
         var S = {
             ascii: 'background: #000000; color: #7B2CBF; font-family: ' + MONO + '; font-weight: bold; font-size: 10px; line-height: 1.25;',
             title: 'background: #000000; color: #FF1E27; font-family: ' + MONO + '; font-size: 14px; font-weight: 900; padding: 6px 10px; border-left: 5px solid #FF1E27; border-top: 1px solid #333; border-right: 1px solid #333; display: block;',
@@ -810,17 +810,19 @@
             magiUnit: 'background: #000000; color: #39FF14; font-family: ' + MONO + '; font-size: 11px; font-weight: bold; padding: 4px 8px; border: 1px solid #39FF14; border-radius: 3px;',
             statusPass: 'background: #39FF14; color: #000000; font-family: ' + MONO + '; font-size: 12px; font-weight: 900; padding: 4px 10px; border-radius: 2px;',
             
-            // 審計矩陣全黑面板區塊 (解決白底睇唔清嘅核心)
-            panelBorder: 'background: #08080c; color: #A762FF; font-family: ' + MONO + '; font-size: 11px; font-weight: bold; padding: 3px 10px; display: block;',
-            panelRow: 'background: #08080c; color: #D8B4FE; font-family: ' + MONO + '; font-size: 11px; font-weight: 600; padding: 2px 10px; display: block;',
-            passTag: 'background: #15441E; color: #39FF14; font-family: ' + MONO + '; font-size: 11px; font-weight: bold; padding: 1px 6px; border-radius: 2px;',
+            // 修正版：整塊面板一體化深黑（解決你截圖中框線破裂與斷黑問題）
+            panelFull: 'background: #050508; color: #D8B4FE; font-family: ' + MONO + '; font-size: 11px; line-height: 1.6; padding: 8px 12px; border-left: 4px solid #7B2CBF; border-right: 1px solid #222; border-top: 1px solid #222; border-bottom: 1px solid #222; display: block;',
             
             // 警示黑底框
             warnHead: 'background: #FF1E27; color: #FFFFFF; font-family: ' + MONO + '; font-size: 12px; font-weight: 900; padding: 3px 8px; display: block;',
-            warnBody: 'background: #110305; color: #FCA5A5; font-family: ' + MONO + '; font-size: 11px; line-height: 1.6; padding: 8px 10px; border-left: 3px solid #FF1E27; border-bottom: 1px solid #FF1E27; display: block;',
+            warnBody: 'background: #110305; color: #FCA5A5; font-family: ' + MONO + '; font-size: 11px; line-height: 1.6; padding: 8px 10px; border-left: 4px solid #FF1E27; border-bottom: 1px solid #FF1E27; border-right: 1px solid #222; display: block;',
             
-            // 指令底座
-            cliBar: 'background: #1a0b2e; color: #39FF14; font-family: ' + MONO + '; font-size: 11px; font-weight: bold; padding: 6px 10px; border: 1px solid #7B2CBF; display: block;'
+            // 指令提示條
+            cliBar: 'background: #1a0b2e; color: #39FF14; font-family: ' + MONO + '; font-size: 11px; font-weight: bold; padding: 6px 10px; border: 1px solid #7B2CBF; display: block;',
+            
+            // help 與 audit 專用跨背景顏色
+            cmdKey: 'background: #15441E; color: #39FF14; font-weight: bold; font-family: ' + MONO + '; padding: 1px 6px; border-radius: 2px;',
+            cmdDesc: 'background: #000000; color: #E2E8F0; font-family: ' + MONO + '; padding: 1px 6px;'
         };
 
         function renderMagiTerminal() {
@@ -849,15 +851,19 @@
             console.log('%c>> STATUS: 三賢人全數合意 (ALL AGREED) // AI GOVERNANCE ASSESSMENT: PASSED (3/3)', S.statusPass);
             console.log('');
 
-            // 三道防線審計維度 (自帶深暗色沙盒背景面板)
-            console.log('%c┌── [ VERIFIED COMPLIANCE & DEFENSE BASELINE ] ────────────────────────────────┐', S.panelBorder);
-            console.log('%c│ • 1st Line (Delivery)  : %c[PASS]%c 100% In-Memory Sandbox • Zero Data Retention       │', S.panelRow, S.passTag, S.panelRow);
-            console.log('%c│ • 2nd Line (Risk/Legal): %c[PASS]%c ISO 42001/27701/27001 • EU AI Act • PCPD Fwk         │', S.panelRow, S.passTag, S.panelRow);
-            console.log('%c│ • 3rd Line (Assurance) : %c[PASS]%c CodeQL Matrix • OpenSSF Scorecard • Keyless Rekor    │', S.panelRow, S.passTag, S.panelRow);
-            console.log('%c└── [ SYSTEM INTEGRITY: 100% // NO RISK ANOMALY DETECTED ] ───────────────────┘', S.panelBorder);
+            // 乾淨整塊深黑面板，徹底修復斷裂與文字折行
+            var panelContent = [
+                '┌── [ VERIFIED COMPLIANCE & DEFENSE BASELINE ] ─────────────────────────┐',
+                '│ • 1st Line (Delivery)  : [PASS] 100% In-Memory Sandbox • Zero Data Retention │',
+                '│ • 2nd Line (Risk/Legal): [PASS] ISO 42001/27701/27001 • EU AI Act • PCPD Fwk │',
+                '│ • 3rd Line (Assurance) : [PASS] CodeQL Matrix • OpenSSF Scorecard • Rekor Log │',
+                '└── [ SYSTEM INTEGRITY: 100% // NO RISK ANOMALY DETECTED ] ────────────┘'
+            ].join('\n');
+
+            console.log('%c' + panelContent, S.panelFull);
             console.log('');
 
-            // 免責與 Self-XSS 提示 (自帶暗黑紅防護底座)
+            // 免責提示（暗紅底黑框）
             console.log('%c 🛑 LEGAL & SECURITY NOTICE // 普通法及防護警示 ', S.warnHead);
             console.log(
                 '%c【合規與調解提示】依據普通法與誠信原則，在主控台隨意貼上未知腳本形同盲目簽署無保留免責條款，易引發 Self-XSS 攻擊。\n本站恪守純本機記憶體運算與零資料留存（ZDR），無伺服器側日誌。請勿輕信第三方代碼。',
@@ -865,7 +871,7 @@
             );
             console.log('');
 
-            // CLI 指令引導
+            // 指令引導條
             console.log('%c💡 終端互動指令：請在下方輸入 law.help() 查看隱藏指令集。', S.cliBar);
         }
 
@@ -874,23 +880,32 @@
         window.law = Object.freeze({
             help: function () {
                 console.log('%c[ MAGI CONSOLE CLI INTERACTION SUITE ]', S.sub);
-                console.log('%claw.audit()     %c- 執行即時本機客戶端純淨度與三道防線體檢', 'color:#166534; font-weight:bold; font-family:' + MONO, 'color:#1e293b; font-family:' + MONO);
-                console.log('%claw.berserk()   %c- 啟動初號機暴走狀態（全螢幕視覺光暈共鳴）', 'color:#166534; font-weight:bold; font-family:' + MONO, 'color:#1e293b; font-family:' + MONO);
-                console.log('%claw.magi()      %c- 重新輪詢三賢人 (MELCHIOR, BALTHASAR, CASPER) 共識狀態', 'color:#166534; font-weight:bold; font-family:' + MONO, 'color:#1e293b; font-family:' + MONO);
-                console.log('%claw.provenance()%c- 檢索 PGP 身份鏈與 Triple-ISO 認證存證', 'color:#166534; font-weight:bold; font-family:' + MONO, 'color:#1e293b; font-family:' + MONO);
+                console.log('%claw.audit()%c - 執行即時本機客戶端純淨度與三道防線體檢', S.cmdKey, S.cmdDesc);
+                console.log('%claw.berserk()%c - 啟動初號機暴走狀態（全螢幕視覺光暈共鳴）', S.cmdKey, S.cmdDesc);
+                console.log('%claw.magi()%c - 重新輪詢三賢人 (MELCHIOR, BALTHASAR, CASPER) 共識狀態', S.cmdKey, S.cmdDesc);
+                console.log('%claw.provenance()%c - 檢索 PGP 身份鏈與 Triple-ISO 認證存證', S.cmdKey, S.cmdDesc);
                 console.log('%c💡 提示：若系統開啟「減少動態效果 (Reduce Motion)」，暴走光暈將被自動抑制。', 'color:#64748b; font-style:italic; font-size:11px; font-family:' + MONO);
                 return 'Type any command above to proceed.';
             },
             audit: function () {
                 var memInfo = (window.performance && window.performance.memory) ? 
-                    (window.performance.memory.usedJSHeapSize / 1048576).toFixed(2) + ' MB' : 'Sandboxed';
+                    (window.performance.memory.usedJSHeapSize / 1048576).toFixed(2) + ' MB' : 'Protected';
+                
                 console.log('%c[ AUDIT REPORT ] The Three Lines Health Assessment:', S.statusPass);
-                console.table([
-                    { 'Defense Line': '1st (Operations)', 'Control': 'Retention', 'Status': 'ZERO (Pure Local)', 'Standard': 'ZDR' },
-                    { 'Defense Line': '2nd (Compliance)', 'Control': 'AI & Privacy', 'Status': 'ENFORCED', 'Standard': 'ISO 42001/27701' },
-                    { 'Defense Line': '3rd (Assurance)',  'Control': 'Supply Chain', 'Status': 'HARDENED', 'Standard': 'OpenSSF/CodeQL' },
-                    { 'Defense Line': 'System Memory',   'Control': 'JS Heap', 'Status': memInfo, 'Standard': 'Perf Cap' }
-                ]);
+                
+                // 純黑底 ASCII 專用終端表格（徹底解決原生 console.table 在白底 DevTools 泛白問題）
+                var auditTable = [
+                    '┌──────────────────┬──────────────────┬─────────────────────┬──────────────────┐',
+                    '│ Defense Line     │ Control Target   │ Real-time Status    │ Audit Standard   │',
+                    '├──────────────────┼──────────────────┼─────────────────────┼──────────────────┤',
+                    '│ 1st (Operations) │ Retention        │ ZERO (Pure Local)   │ ZDR Mandate      │',
+                    '│ 2nd (Compliance) │ AI & Privacy     │ ENFORCED            │ ISO 42001/27701  │',
+                    '│ 3rd (Assurance)  │ Supply Chain     │ HARDENED            │ OpenSSF / CodeQL │',
+                    '│ System Memory    │ JS Heap (Used)   │ ' + memInfo.padEnd(19) + ' │ Perf Cap         │',
+                    '└──────────────────┴──────────────────┴─────────────────────┴──────────────────┘'
+                ].join('\n');
+
+                console.log('%c' + auditTable, 'background: #000000; color: #39FF14; font-family: ' + MONO + '; font-size: 11px; line-height: 1.4; padding: 6px 10px; display: block;');
                 return 'Audit complete: No anomalies or unauthorized data leaks detected.';
             },
             berserk: function () {
