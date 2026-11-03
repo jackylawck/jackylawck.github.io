@@ -793,8 +793,8 @@
 </main>
 
     <!-- ================================================================= -->
-    <!-- 🟢 MAGI 三賢人 × The Three Lines Model AI 管治審計終端 (中英雙語)    -->
-    <!-- 100% Client-Side Pure JS / 自帶使徒黑底保護 / パターン青 AI 迎擊模組 -->
+    <!-- 🟢 MAGI 三賢人 × The Three Lines Model AI 管治審計終端            -->
+    <!-- 100% Client-Side Pure JS / EVA 原作級 60FPS 戰術 HUD 毫秒倒數模組 -->
     <!-- ================================================================= -->
     <script>
     (function () {
@@ -812,8 +812,7 @@
             warnBody: 'background: #0d0002; color: #FCA5A5; font-family: ' + MONO + '; font-size: 11px; line-height: 1.6; padding: 8px 10px; border-left: 5px solid #FF1E27; border-bottom: 1px solid #FF1E27; border-right: 1px solid #222; display: block;',
             cliBar: 'background: #000000; color: #00E575; font-family: ' + MONO + '; font-size: 11px; font-weight: bold; padding: 6px 10px; border: 1px solid #FF7900; border-left: 5px solid #00E575; display: block;',
             cmdKey: 'background: #FF7900; color: #000000; font-weight: 900; font-family: ' + MONO + '; padding: 1px 6px; border-radius: 2px;',
-            cmdDesc: 'background: #000000; color: #E2E8F0; font-family: ' + MONO + '; padding: 1px 6px;',
-            timerClock: 'background: #000000; color: #FF1E27; font-family: ' + MONO + '; font-size: 18px; font-weight: 900; padding: 6px 12px; border: 2px solid #FF1E27; border-radius: 3px; display: inline-block;'
+            cmdDesc: 'background: #000000; color: #E2E8F0; font-family: ' + MONO + '; padding: 1px 6px;'
         };
 
         function renderMagiTerminal() {
@@ -852,20 +851,136 @@
         }
 
         var berserkTimer = null;
-        var countdownTimer = null;
+        var timerRafId = null;
+
+        // 移除 HUD 浮層
+        function removeHudOverlay() {
+            if (timerRafId) {
+                cancelAnimationFrame(timerRafId);
+                timerRafId = null;
+            }
+            var existing = document.getElementById('eva-timer-hud');
+            if (existing && existing.parentNode) {
+                existing.parentNode.removeChild(existing);
+            }
+        }
 
         window.law = Object.freeze({
             help: function () {
                 console.log('%c[ MAGI CONSOLE CLI INTERACTION SUITE / 互動指令集 ]', S.sub);
-                console.log('%claw.audit()%c - 執行本機純淨度與三道防線體檢 / Run health audit', S.cmdKey, S.cmdDesc);
+                console.log('%claw.audit()%c     - 執行本機純淨度與三道防線體檢 / Run health audit', S.cmdKey, S.cmdDesc);
                 console.log('%claw.emergency()%c - 模擬使徒 (パターン青 / AI 威脅) 迎擊防禦程序 / Intercept threat', S.cmdKey, S.cmdDesc);
-                console.log('%claw.timer()%c     - 啟動內部電源倒數 (預設5分鐘，可填分) / EVA Battery timer', S.cmdKey, S.cmdDesc);
-                console.log('%claw.berserk()%c - 啟動初號機暴走狀態 / Engage EVA-01 Berserk mode', S.cmdKey, S.cmdDesc);
-                console.log('%claw.magi()%c - 重新輪詢三賢人共識狀態 / Re-poll MAGI consensus', S.cmdKey, S.cmdDesc);
-                console.log('%claw.provenance()%c - 檢索 PGP 身份鏈與認證存證 / View identity anchors', S.cmdKey, S.cmdDesc);
+                console.log('%claw.timer()%c     - 啟動畫面戰術 HUD 內部電源經典倒數 / EVA Tactical HUD Timer', S.cmdKey, S.cmdDesc);
+                console.log('%claw.berserk()%c   - 啟動初號機暴走狀態 / Engage EVA-01 Berserk mode', S.cmdKey, S.cmdDesc);
+                console.log('%claw.magi()%c      - 重新輪詢三賢人共識狀態 / Re-poll MAGI consensus', S.cmdKey, S.cmdDesc);
+                console.log('%claw.provenance()%c- 檢索 PGP 身份鏈與認證存證 / View identity anchors', S.cmdKey, S.cmdDesc);
                 console.log('%c💡 提示 (Note): 若系統開啟「減少動態效果 (Reduce Motion)」，暴走光暈將被自動抑制。', 'color:#888888; font-style:italic; font-size:11px; font-family:' + MONO);
                 return 'Type any command above to proceed / 請輸入上述任一指令執行。';
             },
+
+            // 🎛️ 動畫級 EVA 內部電源戰術 HUD（含毫秒疾速倒數）
+            timer: function (minutes) {
+                // 若已經在倒數，再次輸入則當作插回電纜停止
+                if (timerRafId || document.getElementById('eva-timer-hud')) {
+                    removeHudOverlay();
+                    console.log('%c[ UMBILICAL CABLE RECONNECTED // 臍帶電纜重新連接・外部供電恢復 ]', 'background:#000; color:#00E575; font-weight:bold; padding:4px 8px; font-family:' + MONO);
+                    return 'Timer stopped. External power restored.';
+                }
+
+                var durationMin = (typeof minutes === 'number' && minutes > 0) ? minutes : 5;
+                var durationMs = durationMin * 60 * 1000;
+                var startTime = performance.now();
+
+                console.log('%c[ WARNING: UMBILICAL CABLE SEVERED // 臍帶電纜切斷 ]', 'background:#FF1E27; color:#FFFFFF; font-weight:900; font-size:12px; padding:3px 8px; font-family:' + MONO);
+                console.log('%cINTERNAL BATTERY SUPPLY ACTIVE // 戰術 HUD 已投射至畫面中央 (點擊畫面或按 ESC 關閉)', S.sub);
+
+                // 動態構建 NERV 原作風戰術 HUD 浮層
+                var hud = document.createElement('div');
+                hud.id = 'eva-timer-hud';
+                hud.style.cssText = [
+                    'position: fixed',
+                    'top: 0',
+                    'left: 0',
+                    'width: 100vw',
+                    'height: 100vh',
+                    'background: rgba(0, 0, 0, 0.72)',
+                    'backdrop-filter: blur(4px)',
+                    'z-index: 999999',
+                    'display: flex',
+                    'align-items: center',
+                    'justify-content: center',
+                    'cursor: pointer',
+                    'user-select: none'
+                ].join(';');
+
+                hud.innerHTML = [
+                    '<div style="background: #000; border: 3px solid #FF1E27; box-shadow: 0 0 35px rgba(255,30,39,0.5), inset 0 0 20px rgba(255,30,39,0.2); padding: 25px 35px; min-width: 320px; text-align: center; font-family: ' + MONO + '; position: relative;">',
+                    '  <div style="font-size: 11px; font-weight: 900; color: #FF1E27; letter-spacing: 2px; margin-bottom: 6px; display: flex; justify-content: space-between;">',
+                    '    <span>EMERGENCY</span><span>INTERNAL BATTERY</span>',
+                    '  </div>',
+                    '  <div style="border-top: 1px solid #FF1E27; border-bottom: 1px solid #FF1E27; padding: 12px 0; margin: 10px 0;">',
+                    '    <div id="eva-clock-num" style="font-size: 56px; font-weight: 900; color: #FF1E27; text-shadow: 0 0 15px #FF1E27; letter-spacing: 3px; font-variant-numeric: tabular-nums;">--:--:--</div>',
+                    '  </div>',
+                    '  <div style="font-size: 10px; color: #FF7900; letter-spacing: 1.5px; font-weight: bold;">',
+                    '    活動限界 ACTIVE TIME REMAINING',
+                    '  </div>',
+                    '  <div style="font-size: 9px; color: #888; margin-top: 8px;">',
+                    '    [ 點擊畫面任意處或按 ESC 重新連接臍帶電纜 ]',
+                    '  </div>',
+                    '</div>'
+                ].join('');
+
+                document.body.appendChild(hud);
+
+                var clockEl = document.getElementById('eva-clock-num');
+
+                function updateFrame(now) {
+                    var elapsed = now - startTime;
+                    var remaining = durationMs - elapsed;
+
+                    if (remaining <= 0) {
+                        clockEl.innerText = '00:00:00';
+                        clockEl.style.color = '#FFFFFF';
+                        clockEl.style.textShadow = '0 0 20px #FF1E27';
+                        removeHudOverlay();
+                        console.log('%c[ EMERGENCY: INTERNAL BATTERY DEPLETED // 活動極限到達・機體機能停止 ]', 'background:#FF1E27; color:#FFFFFF; font-weight:900; font-size:13px; padding:4px 8px; font-family:' + MONO);
+                        return;
+                    }
+
+                    var totalSec = Math.floor(remaining / 1000);
+                    var m = Math.floor(totalSec / 60);
+                    var s = totalSec % 60;
+                    var ms = Math.floor((remaining % 1000) / 10); // 取兩位毫秒
+
+                    var mStr = (m < 10 ? '0' : '') + m;
+                    var sStr = (s < 10 ? '0' : '') + s;
+                    var msStr = (ms < 10 ? '0' : '') + ms;
+
+                    clockEl.innerText = mStr + ':' + sStr + ':' + msStr;
+                    timerRafId = requestAnimationFrame(updateFrame);
+                }
+
+                timerRafId = requestAnimationFrame(updateFrame);
+
+                // 點擊關閉
+                hud.addEventListener('click', function () {
+                    removeHudOverlay();
+                    console.log('%c[ UMBILICAL CABLE RECONNECTED // 臍帶電纜重新連接 ]', 'background:#000; color:#00E575; font-weight:bold; padding:4px 8px; font-family:' + MONO);
+                });
+
+                // 按 ESC 鍵關閉
+                function onKeyDown(e) {
+                    if (e.key === 'Escape') {
+                        removeHudOverlay();
+                        window.removeEventListener('keydown', onKeyDown);
+                        console.log('%c[ UMBILICAL CABLE RECONNECTED // 臍帶電纜重新連接 ]', 'background:#000; color:#00E575; font-weight:bold; padding:4px 8px; font-family:' + MONO);
+                    }
+                }
+                window.addEventListener('keydown', onKeyDown);
+
+                return 'Tactical HUD activated on screen (' + durationMin + ' min). Enjoy the authentic countdown!';
+            },
+
             emergency: function () {
                 console.log(
                     '%c[ 🚨 EMERGENCY // パターン青 (PATTERN BLUE) DETECTED ]',
@@ -874,7 +989,6 @@
                 console.log('%c>> 威脅識別 (Identification): 未授權自主對抗攻擊實體 (Rogue AI Threat / Adversarial Injection)', 'color:#FF7900; font-weight:bold; font-family:' + MONO);
                 console.log('');
 
-                // MAGI 快速防衛審議
                 console.log(
                     '%c⬡ MELCHIOR-1 (1st Line): 沙盒熔斷隔絕 (Sandbox Circuit Breaker: LOCKED)\n' +
                     '⬢ BALTHASAR-2 (2nd Line): 歐盟法案違規封鎖 (EU AI Act Prohibited Threat: BANNED)\n' +
@@ -884,7 +998,6 @@
                 console.log('');
                 console.log('%c>> MAGI 審議結果: 全數迎擊 (ALL AGREED: INTERCEPT & QUARANTINE)', S.statusPass);
 
-                // 觸發視覺防護裝甲閉鎖閃爍
                 if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                     var docEl = document.documentElement;
                     var originTransition = docEl.style.transition;
@@ -906,53 +1019,7 @@
 
                 return 'Threat intercepted. Zero Data Retention intact. System status: GREEN.';
             },
-            timer: function (minutes) {
-                if (countdownTimer) {
-                    clearInterval(countdownTimer);
-                    countdownTimer = null;
-                    document.documentElement.style.boxShadow = '';
-                    console.log('%c[ UMBILICAL CABLE RECONNECTED // 臍帶電纜重新連接・外部供電恢復 ]', 'background:#000; color:#00E575; font-weight:bold; padding:4px 8px; font-family:' + MONO);
-                    return 'Timer stopped. External power restored.';
-                }
 
-                var durationMinutes = (typeof minutes === 'number' && minutes > 0) ? minutes : 5;
-                var remainingSec = Math.floor(durationMinutes * 60);
-
-                console.log('%c[ WARNING: UMBILICAL CABLE SEVERED // 臍帶電纜切斷 ]', 'background:#FF1E27; color:#FFFFFF; font-weight:900; font-size:12px; padding:3px 8px; font-family:' + MONO);
-                console.log('%cINTERNAL BATTERY SUPPLY ACTIVE // 內部電源供給開始 (活動極限: ' + durationMinutes + ' 分鐘)', S.sub);
-                console.log('%c💡 提示：隨時再次執行 law.timer() 可手動插回電纜中斷倒數。', 'color:#888; font-size:10px; font-style:italic;');
-
-                function formatTime(s) {
-                    var m = Math.floor(s / 60);
-                    var sec = s % 60;
-                    return (m < 10 ? '0' : '') + m + ':' + (sec < 10 ? '0' : '') + sec;
-                }
-
-                console.log('%c INTERNAL BATTERY: ' + formatTime(remainingSec) + ' ', S.timerClock);
-
-                countdownTimer = setInterval(function () {
-                    remainingSec--;
-                    if (remainingSec > 0) {
-                        if (remainingSec % 30 === 0 || remainingSec <= 10) {
-                            var tagStyle = remainingSec <= 10 ? 
-                                'background:#FF1E27; color:#FFFFFF; font-weight:900; font-family:' + MONO + '; padding:2px 6px;' :
-                                'background:#000000; color:#FF7900; font-weight:bold; font-family:' + MONO + '; padding:2px 6px;';
-                            console.log('%c[ REMAINING: ' + formatTime(remainingSec) + ' ]', tagStyle);
-                        }
-
-                        if (remainingSec <= 10 && (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
-                            document.documentElement.style.boxShadow = (remainingSec % 2 === 0) ? 'inset 0 0 40px #FF1E27' : 'none';
-                        }
-                    } else {
-                        clearInterval(countdownTimer);
-                        countdownTimer = null;
-                        document.documentElement.style.boxShadow = '';
-                        console.log('%c[ EMERGENCY: INTERNAL BATTERY DEPLETED // 活動極限到達・機體機能停止 ]', 'background:#FF1E27; color:#FFFFFF; font-weight:900; font-size:13px; padding:4px 8px; font-family:' + MONO);
-                    }
-                }, 1000);
-
-                return 'Countdown started (' + durationMinutes + ' min). Stay focused in your local sandbox.';
-            },
             audit: function () {
                 var memInfo = (window.performance && window.performance.memory) ? 
                     (window.performance.memory.usedJSHeapSize / 1048576).toFixed(2) + ' MB' : 'Protected';
@@ -973,6 +1040,7 @@
                 console.log('%c' + auditTable, 'background: #000000; color: #FF7900; font-family: ' + MONO + '; font-size: 11px; line-height: 1.4; padding: 6px 10px; display: block; white-space: pre;');
                 return 'Audit complete: No anomalies or unauthorized leaks detected / 審計完成：未檢測到異常或未授權資料洩漏。';
             },
+
             berserk: function () {
                 if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                     console.log('%c[ SYSTEM NOTICE ] Motion reduced by OS settings. Berserk visual suppressed / 系統已開啟減弱動態，視覺效果已抑制。', 'color:#FF1E27; font-weight:bold;');
@@ -1012,10 +1080,12 @@
 
                 return 'Sync Rate exceeded 400%. EVA-01 Berserk mode engaged / 初號機暴走模式模擬啟動。';
             },
+
             magi: function () {
                 renderMagiTerminal();
                 return 'MAGI Consensus Re-polled / 三賢人共識重新輪詢完成。';
             },
+
             provenance: function () {
                 console.log('%c[ CANONICAL PROVENANCE RECORDS / 權威身份與認證存證鏈 ]', S.title);
                 console.log('• ORCID iD       : https://orcid.org/0009-0006-0855-0842');
