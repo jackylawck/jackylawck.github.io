@@ -793,8 +793,8 @@
 </main>
 
     <!-- ================================================================= -->
-    <!-- 🟢 MAGI 三賢人 × The Three Lines Model AI 管治審計終端 (中英雙語)    -->
-    <!-- 100% Client-Side Pure JS / 自帶使徒黑底保護 / Zero Telemetry      -->
+    <!-- 🟢 MAGI 三賢人 × The Three Lines Model AI 管治審計終端 (單屏精控版) -->
+    <!-- 100% Client-Side Pure JS / 自帶使徒黑底保護 / 一屏全覽不捲動       -->
     <!-- ================================================================= -->
     <script>
     (function () {
@@ -802,48 +802,35 @@
 
         var MONO = '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace';
 
+        // 緊湊單屏樣式：微調 padding 與 margin，確保一屏容納全部資訊
         var S = {
-            // 標題列：左側紅條警戒線，極致純黑底
-            title: 'background: #000000; color: #FF1E27; font-family: ' + MONO + '; font-size: 13px; font-weight: 900; padding: 7px 10px; border-left: 5px solid #FF1E27; border-top: 1px solid #222; border-right: 1px solid #222; display: block;',
-            sub: 'background: #000000; color: #FF7900; font-family: ' + MONO + '; font-size: 11px; font-weight: bold; padding: 4px 10px; border-left: 5px solid #FF7900; border-bottom: 1px solid #222; border-right: 1px solid #222; display: block;',
-            
-            // MAGI 三賢人琥珀橙葉片模組
-            magiUnit: 'background: #000000; color: #FF7900; font-family: ' + MONO + '; font-size: 10.5px; font-weight: 900; padding: 4px 8px; border: 1.5px solid #FF7900; border-radius: 2px;',
-            statusPass: 'background: #FF7900; color: #000000; font-family: ' + MONO + '; font-size: 12px; font-weight: 900; padding: 4px 10px; border-radius: 2px;',
-            
-            // 三道防線面板（純黑底 + 琥珀橙）
-            panelFull: 'background: #000000; color: #FFB347; font-family: ' + MONO + '; font-size: 11px; line-height: 1.6; padding: 8px 12px; border-left: 5px solid #FF7900; border-right: 1px solid #222; border-top: 1px solid #222; border-bottom: 1px solid #222; display: block; white-space: pre;',
-            
-            // 善意風險提示（專業降溫版暗紅底）
-            warnHead: 'background: #FF1E27; color: #FFFFFF; font-family: ' + MONO + '; font-size: 12px; font-weight: 900; padding: 3px 8px; display: block;',
-            warnBody: 'background: #0d0002; color: #FCA5A5; font-family: ' + MONO + '; font-size: 11px; line-height: 1.6; padding: 8px 10px; border-left: 5px solid #FF1E27; border-bottom: 1px solid #FF1E27; border-right: 1px solid #222; display: block;',
-            
-            // 指令提示條
-            cliBar: 'background: #000000; color: #00E575; font-family: ' + MONO + '; font-size: 11px; font-weight: bold; padding: 6px 10px; border: 1px solid #FF7900; border-left: 5px solid #00E575; display: block;',
-            
-            // CLI 指令膠囊
-            cmdKey: 'background: #FF7900; color: #000000; font-weight: 900; font-family: ' + MONO + '; padding: 1px 6px; border-radius: 2px;',
-            cmdDesc: 'background: #000000; color: #E2E8F0; font-family: ' + MONO + '; padding: 1px 6px;'
+            title: 'background: #000000; color: #FF1E27; font-family: ' + MONO + '; font-size: 12px; font-weight: 900; padding: 4px 8px; border-left: 4px solid #FF1E27; border-top: 1px solid #222; border-right: 1px solid #222; display: block;',
+            sub: 'background: #000000; color: #FF7900; font-family: ' + MONO + '; font-size: 10px; font-weight: bold; padding: 3px 8px; border-left: 4px solid #FF7900; border-bottom: 1px solid #222; border-right: 1px solid #222; display: block;',
+            magiUnit: 'background: #000000; color: #FF7900; font-family: ' + MONO + '; font-size: 10px; font-weight: 900; padding: 3px 6px; border: 1.5px solid #FF7900; border-radius: 2px;',
+            statusPass: 'background: #FF7900; color: #000000; font-family: ' + MONO + '; font-size: 11px; font-weight: 900; padding: 3px 8px; border-radius: 2px; display: inline-block; margin: 4px 0;',
+            panelFull: 'background: #000000; color: #FFB347; font-family: ' + MONO + '; font-size: 10.5px; line-height: 1.5; padding: 6px 10px; border-left: 4px solid #FF7900; border-right: 1px solid #222; border-top: 1px solid #222; border-bottom: 1px solid #222; display: block; white-space: pre;',
+            warnHead: 'background: #FF1E27; color: #FFFFFF; font-family: ' + MONO + '; font-size: 11px; font-weight: 900; padding: 2px 6px; display: block; margin-top: 4px;',
+            warnBody: 'background: #0d0002; color: #FCA5A5; font-family: ' + MONO + '; font-size: 10px; line-height: 1.45; padding: 6px 8px; border-left: 4px solid #FF1E27; border-bottom: 1px solid #FF1E27; border-right: 1px solid #222; display: block;',
+            cliBar: 'background: #000000; color: #00E575; font-family: ' + MONO + '; font-size: 10.5px; font-weight: bold; padding: 4px 8px; border: 1px solid #FF7900; border-left: 4px solid #00E575; display: block; margin-top: 4px;',
+            cmdKey: 'background: #FF7900; color: #000000; font-weight: 900; font-family: ' + MONO + '; padding: 1px 5px; border-radius: 2px;',
+            cmdDesc: 'background: #000000; color: #E2E8F0; font-family: ' + MONO + '; padding: 1px 5px;'
         };
 
         function renderMagiTerminal() {
-            // 中英雙語戰術終端標題
+            // 標題與存證
             console.log('%c[ TACTICAL CENTER // MAGI AI 管治審計終端 (GOVERNANCE AUDIT) ]', S.title);
             console.log('%cPROVENANCE: PGP [FFA3E47793F1CA32] • IIA THE THREE LINES MODEL (三道防線認證)', S.sub);
-            console.log('');
 
-            // MAGI 三賢人合意矩陣 (中英合意狀態)
+            // 三賢人合意矩陣
             console.log(
-                '%c[ MELCHIOR-1: 一線研發 (DevSecOps) ] 合意 AGREED %c  %c[ BALTHASAR-2: 二線風控 (Risk & Legal) ] 合意 AGREED %c  %c[ CASPER-3: 三線審計 (Internal Audit) ] 合意 AGREED ',
+                '%c[ MELCHIOR-1: 一線研發 ] AGREED %c %c[ BALTHASAR-2: 二線風控 ] AGREED %c %c[ CASPER-3: 三線審計 ] AGREED ',
                 S.magiUnit, '',
                 S.magiUnit, '',
                 S.magiUnit
             );
-            console.log('');
             console.log('%c>> STATUS: 三賢人全數合意 (ALL AGREED) // AI 管治審計通過 (PASSED 3/3)', S.statusPass);
-            console.log('');
 
-            // 中英雙語緊湊面板 (54 字符以內，杜絕窄螢幕換行破版)
+            // 基準矩陣面板
             var panelContent = [
                 '==== [ COMPLIANCE & DEFENSE BASELINE / 合規基準矩陣 ] ====',
                 '• 1st Line (一線交付): [PASS] 純記憶體運算 In-Memory / ZDR',
@@ -851,19 +838,16 @@
                 '• 3rd Line (三線審計): [PASS] CodeQL / OpenSSF / Rekor 存證',
                 '================== [ INTEGRITY: 100% ] =================='
             ].join('\n');
-
             console.log('%c' + panelContent, S.panelFull);
-            console.log('');
 
-            // 調解員與資訊安全專業視角的善意提示（專業降溫、溫和保護）
+            // 善意提示
             console.log('%c 🛑 SAFETY & COMPLIANCE ADVISORY // 存證與資安風險提示 ', S.warnHead);
             console.log(
-                '%c【資安與誠信提示】此處為瀏覽器控制台（Console），供開發者調試使用。\n依據普通法與資訊安全原則，請勿在此貼上任何第三方指示的未經授權腳本，以免遭受「自我跨站腳本（Self-XSS）」攻擊而洩露本機憑證。\n本站恪守「純前端本機記憶體運算」與「零資料留存（Zero Data Retention）」，絕無伺服器側跟蹤。請保持防詐意識，守護自身數碼資產。\n\n[Security Advisory] This feature is intended for developers. Under infosec best practices, never paste untrusted scripts here to avoid Self-XSS exploits. This site strictly operates with Zero Data Retention (ZDR) and pure client-side sandboxing. Stay safe and protect your digital privacy.',
+                '%c【資安提示】依據普通法與誠信原則，請勿在此貼上未知腳本以防 Self-XSS。本站恪守純本機記憶體運算與零資料留存（ZDR），無伺服器側日誌。\n[Notice] Never paste untrusted scripts here to avoid Self-XSS exploits. This site strictly operates with Zero Data Retention (ZDR).',
                 S.warnBody
             );
-            console.log('');
 
-            // CLI 指令引導條 (中英雙語)
+            // CLI 指令引導條
             console.log('%c💡 終端互動指令 (CLI): 請輸入 law.help() 查看功能 / Type law.help() for suite.', S.cliBar);
         }
 
@@ -876,7 +860,7 @@
                 console.log('%claw.berserk()%c - 啟動初號機暴走狀態 / Engage EVA-01 Berserk mode', S.cmdKey, S.cmdDesc);
                 console.log('%claw.magi()%c - 重新輪詢三賢人共識狀態 / Re-poll MAGI consensus', S.cmdKey, S.cmdDesc);
                 console.log('%claw.provenance()%c - 檢索 PGP 身份鏈與認證存證 / View identity anchors', S.cmdKey, S.cmdDesc);
-                console.log('%c💡 提示 (Note): 若系統開啟「減少動態效果 (Reduce Motion)」，暴走光暈將被自動抑制。', 'color:#888888; font-style:italic; font-size:11px; font-family:' + MONO);
+                console.log('%c💡 提示 (Note): 若系統開啟「減少動態效果 (Reduce Motion)」，暴走光暈將被自動抑制。', 'color:#888888; font-style:italic; font-size:10px; font-family:' + MONO);
                 return 'Type any command above to proceed / 請輸入上述任一指令執行。';
             },
             audit: function () {
@@ -885,7 +869,6 @@
                 
                 console.log('%c[ AUDIT REPORT ] The Three Lines Assessment (三道防線審計報表):', S.statusPass);
                 
-                // 中英雙語 ASCII 表格 (嚴格中文雙字寬校正對齊)
                 var auditTable = [
                     '┌──────────────────────┬────────────────────────┬──────────────────┐',
                     '│ 防線 (Defense Line)  │ 管控目標 (Target)      │ 審計標準 (Std)   │',
@@ -912,7 +895,7 @@
 
                 console.log(
                     '%c[ WARNING: SYNCHRONIZATION RATE EXCEEDED 400% // 同步率超過 400% 暴走狀態突入 ]',
-                    'background:#FF1E27; color:#FFFFFF; font-weight:900; font-size:13px; padding:4px 8px; font-family:' + MONO
+                    'background:#FF1E27; color:#FFFFFF; font-weight:900; font-size:12px; padding:3px 6px; font-family:' + MONO
                 );
 
                 var docEl = document.documentElement;
