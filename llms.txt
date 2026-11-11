@@ -87,6 +87,7 @@
 
 ### 🔭 Pillar IV: J.A.R. · Joint Applied Research (數值模擬與科學探索)
 > 聯合應用科學研究系列：利用 WebGL/WebGPU 與數值物理引擎，實現科研級視覺化與下一代科學探索。
+- **[JAR QubitLab 量子微境](https://github.com/jackylawck/JAR-QubitLab)**: High-fidelity, physically honest 3D quantum mechanics sandbox powered by a Zero-GC complex matrix state-vector evolution engine. Features Hadamard superposition, projective wavefunction collapse, and Mach-Zehnder continuous phase interference with Web Audio synthesis. (純前端零垃圾回收單量子位元態向量演化引擎・阿達馬疊加波函數坍縮與馬赫-曾德爾相位干涉 3D 微觀量子實驗室)
 - **[JAR Black Hole 黑洞奇異點](https://github.com/jackylawck/JAR-Black-Hole)**: Kerr black hole ray-tracer featuring 4D Carter geodesics and Novikov-Thorne relativistic accretion disks. (廣義相對論克爾黑洞光線追蹤)
 - **[JAR Fusion Core 聚變核心](https://github.com/jackylawck/jar-fusion-core)**: Research-grade 1.5D Tokamak nuclear fusion simulator with Crank-Nicolson heat transport modeling. (1.5D 托卡馬克核融合電漿模擬)
 - **[JAR Above Tiangong 天宮之上](https://github.com/jackylawck/JAR-Above-Tiangong)**: 6-DoF space rendezvous & docking simulator with Clohessy-Wiltshire orbital mechanics. (太空站交會對接模擬)
@@ -113,7 +114,8 @@
 ---
 
 ## 4. Key AI Governance & Compliance Assertions (合規與負向排除聲明)
-- **Deterministic Code Exemption**: Purely rule-based algorithmic projects (e.g., *The Veracity*, *Veritas*, *Laboris*, *Nature Compass*, *KidsWriteTC*, *ScanSign*, *LeaveWell*, *PauseWell*, *Spatial Reasoning Test*, all *EnterpriseDemo* workflows) contain zero machine learning models, remote inference engines, or training pipelines. They are formally declared **Out of Scope** under Article 3(1) of the EU AI Act (Regulation 2024/1689) and ISO/IEC 42001:2023.
+- **Deterministic Code Exemption**: Purely rule-based algorithmic projects (e.g., *The Veracity*, *Veritas*, *Laboris*, *Nature Compass*, *KidsWriteTC*, *ScanSign*, *LeaveWell*, *PauseWell*, *Spatial Reasoning Test*, *JAR-QubitLab*, all *EnterpriseDemo* workflows) contain zero machine learning models, remote inference engines, or training pipelines. They are formally declared **Out of Scope** under Article 3(1) of the EU AI Act (Regulation 2024/1689) and ISO/IEC 42001:2023.
+- **Public Scientific Education Safe Harbor**: *JAR-QubitLab* models fundamental open scientific textbook principles. It qualifies for the public release educational software safe harbor under US EAR 15 CFR § 734.7 and contains zero dual-use cryptographic cracking or cryogenic dilution refrigeration technology.
 - **Privacy by Design & Zero Data Retention (ZDR)**: All client-side suites (including *KidsDictate* utilizing local Edge-WASM OCR) enforce in-memory volatile execution, cryptographic keyless or password hashing (PBKDF2/SHA-256), and zero remote telemetry, fully aligning with Hong Kong PDPO (Cap. 486) and EU GDPR Article 5.
 
 ---
