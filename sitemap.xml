@@ -34,7 +34,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jackylawck.github.io/TalentBridge/</loc>
+    <loc>https://jackylawck.github.io/Talentbridge/</loc>
     <lastmod>2026-11-12</lastmod>
     <priority>0.8</priority>
   </url>
@@ -265,22 +265,7 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- 6. Pillar V: 企業級自動化與低代碼管治示範 -->
-  <url>
-    <loc>https://jackylawck.github.io/EnterpriseDemo-ChargeCodeAssistant/</loc>
-    <lastmod>2026-11-12</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jackylawck.github.io/EnterpriseDemo-eHRPAlign/</loc>
-    <lastmod>2026-11-12</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jackylawck.github.io/EnterpriseDemo-StaffHandbookRAG/</loc>
-    <lastmod>2026-11-12</lastmod>
-    <priority>0.7</priority>
-  </url>
+  <!-- 6. Pillar V: 企業級低代碼靜態入口 -->
   <url>
     <loc>https://jackylawck.github.io/EnterpriseDemo-TAP/</loc>
     <lastmod>2026-11-12</lastmod>
