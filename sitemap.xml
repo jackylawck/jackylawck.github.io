@@ -3,12 +3,12 @@
   <!-- 1. 官方核心門戶與 AI 管治上下文 -->
   <url>
     <loc>https://jackylawck.github.io/</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://jackylawck.github.io/llms.txt</loc>
-    <lastmod>2026-11-15</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <priority>0.85</priority>
   </url>
 
@@ -275,10 +275,35 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- 6. Pillar V: 企業級低代碼靜態入口 -->
+  <!-- 6. Pillar V: M365 零授權企業自動化與低代碼展示入口 -->
+  <url>
+    <loc>https://jackylawck.github.io/EnterpriseDemo-DailyStaffAppraisal/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jackylawck.github.io/EnterpriseDemo-DOIS/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jackylawck.github.io/EnterpriseDemo-NOTAS/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jackylawck.github.io/EnterpriseDemo-SiteworksPSPJC/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://jackylawck.github.io/EnterpriseDemo-TAP/</loc>
-    <lastmod>2026-11-12</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2026-11-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jackylawck.github.io/EnterpriseDemo-CustomerSurveyDataConsolidation/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <priority>0.75</priority>
   </url>
 </urlset>
