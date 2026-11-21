@@ -15,19 +15,19 @@
         return null;
     }
 
-    function detectInitialLang() {
+    function detectLang() {
         try {
             var params = new URLSearchParams(window.location.search);
-            var qLang = normalizeLang(params.get('lang'));
-            if (qLang) return qLang;
+            var fromUrl = normalizeLang(params.get('lang'));
+            if (fromUrl) return fromUrl;
 
-            var saved = normalizeLang(sessionStorage.getItem(STORAGE_KEY));
-            if (saved) return saved;
+            var fromSession = normalizeLang(sessionStorage.getItem(STORAGE_KEY));
+            if (fromSession) return fromSession;
         } catch (e) {}
         return 'zh';
     }
 
-    function syncUrlState(lang) {
+    function syncUrl(lang) {
         try {
             if (!window.history || !window.history.replaceState) return;
             var url = new URL(window.location.href);
@@ -40,62 +40,60 @@
         } catch (e) {}
     }
 
-    function applyLang(lang, updateUrl) {
-        var valid = normalizeLang(lang) || 'zh';
+    function applyLang(lang, shouldSyncUrl) {
+        var current = normalizeLang(lang) || 'zh';
         var root = document.documentElement;
 
-        root.setAttribute('data-lang', valid);
-        root.setAttribute('lang', valid === 'en' ? 'en' : 'zh-HK');
-        document.title = TITLES[valid];
+        root.setAttribute('data-lang', current);
+        root.setAttribute('lang', current === 'en' ? 'en' : 'zh-HK');
+        document.title = TITLES[current];
 
-        var btnZh = document.getElementById('btn-lang-zh');
-        var btnEn = document.getElementById('btn-lang-en');
-        if (btnZh) btnZh.setAttribute('aria-pressed', valid === 'zh' ? 'true' : 'false');
-        if (btnEn) btnEn.setAttribute('aria-pressed', valid === 'en' ? 'true' : 'false');
+        var buttons = document.querySelectorAll('[data-set-lang]');
+        for (var i = 0; i < buttons.length; i++) {
+            var btn = buttons[i];
+            var isMatch = btn.getAttribute('data-set-lang') === current;
+            btn.setAttribute('aria-pressed', isMatch ? 'true' : 'false');
+        }
 
         try {
-            sessionStorage.setItem(STORAGE_KEY, valid);
+            sessionStorage.setItem(STORAGE_KEY, current);
         } catch (e) {}
 
-        if (updateUrl) {
-            syncUrlState(valid);
+        if (shouldSyncUrl) {
+            syncUrl(current);
         }
     }
 
-    // 首屏渲染前立即鎖定語系與分頁標題，防止畫面閃爍
-    var initialLang = detectInitialLang();
-    document.documentElement.setAttribute('data-lang', initialLang);
-    document.documentElement.setAttribute('lang', initialLang === 'en' ? 'en' : 'zh-HK');
-    document.title = TITLES[initialLang];
-
-    function bindControls() {
-        var btnZh = document.getElementById('btn-lang-zh');
-        var btnEn = document.getElementById('btn-lang-en');
-
-        if (btnZh) {
-            btnZh.addEventListener('click', function () {
-                applyLang('zh', true);
+    function init() {
+        var switcher = document.querySelector('.lang-switcher');
+        if (switcher) {
+            switcher.addEventListener('click', function (event) {
+                var target = event.target.closest('[data-set-lang]');
+                if (!target) return;
+                var selected = target.getAttribute('data-set-lang');
+                if (selected && selected !== document.documentElement.getAttribute('data-lang')) {
+                    applyLang(selected, true);
+                }
             });
         }
-        if (btnEn) {
-            btnEn.addEventListener('click', function () {
-                applyLang('en', true);
-            });
-        }
-
-        applyLang(detectInitialLang(), false);
+        applyLang(detectLang(), false);
     }
+
+    applyLang(detectLang(), false);
 
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', bindControls);
+        document.addEventListener('DOMContentLoaded', init);
     } else {
-        bindControls();
+        init();
     }
 
-    // 支援瀏覽器「返回」快取（bfcache）恢復時同步按鈕狀態
     window.addEventListener('pageshow', function (event) {
         if (event.persisted) {
-            applyLang(detectInitialLang(), false);
+            applyLang(detectLang(), false);
         }
+    });
+
+    window.addEventListener('popstate', function () {
+        applyLang(detectLang(), false);
     });
 })();
