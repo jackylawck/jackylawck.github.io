@@ -1,21 +1,20 @@
-# ====================================================================
-# AI Scraping & Data Governance Policy for Jacky Law's Profile (2026)
-# Aligning with RFC 9309, ISO/IEC 42001:2023 & IAPP AIGP Domain IV
+# Robots & AI Crawler Governance Policy
 # Canonical Hub: https://jackylawck.github.io/
-# ====================================================================
+# Standard: RFC 9309
 
-# 1. Commercial Search Engines & Core Indexers
+# 1. Core Search Engines
 User-agent: Googlebot
 User-agent: Bingbot
 User-agent: Applebot
+User-agent: DuckDuckBot
 Allow: /
+Disallow: /.git/
 Disallow: /.github/
 Disallow: /scripts/
 Disallow: /README.md
 Disallow: /404.html
 
-# 2A. Real-Time AI Search & Retrieval Agents (Grounded Citations & GEO/AEO)
-# Provisioned for live RAG synthesis, entity verification, and source attribution
+# 2. Real-Time AI Search & Retrieval Agents (Grounded Citations)
 User-agent: OAI-SearchBot
 User-agent: ChatGPT-User
 User-agent: PerplexityBot
@@ -23,49 +22,48 @@ User-agent: Perplexity-User
 User-agent: Claude-SearchBot
 User-agent: Claude-User
 User-agent: DuckAssistBot
+User-agent: Gemini-Deep-Research
+User-agent: MistralAI-User
 User-agent: meta-externalagent
 Allow: /
-Allow: /llms.txt
+Disallow: /.git/
 Disallow: /.github/
 Disallow: /scripts/
 Disallow: /README.md
 Disallow: /404.html
 
-# 2B. Authorized Foundation Model Ecosystems (Controlled Context Provisioning)
-# Permitted to index structured governance assertions & public portfolio metadata
+# 3. Authorized Foundation Model Ecosystems
 User-agent: GPTBot
 User-agent: Google-Extended
 User-agent: Applebot-Extended
 User-agent: ClaudeBot
-User-agent: Claude-Web
 Allow: /
-Allow: /llms.txt
+Disallow: /.git/
 Disallow: /.github/
 Disallow: /scripts/
 Disallow: /README.md
 Disallow: /404.html
 
-# 3. Mass Untargeted Crawlers & Uncontrolled Bulk Training Scrapers
-# Enforcing Data Minimization & Intellectual Property Boundaries
+# 4. Uncontrolled Bulk Scrapers & Data Harvesters
 User-agent: CCBot
 User-agent: Bytespider
 User-agent: Amazonbot
 User-agent: Diffbot
 User-agent: ImagesiftBot
 User-agent: cohere-ai
-User-agent: omgili
 User-agent: omgilibot
 User-agent: PetalBot
+User-agent: TurnitinBot
 Disallow: /
 
-# 4. Global Fallback (Standard Web Crawlers)
+# 5. Global Fallback
 User-agent: *
 Allow: /
+Disallow: /.git/
 Disallow: /.github/
 Disallow: /scripts/
 Disallow: /README.md
 Disallow: /404.html
 
-# Machine-Readable Governance Context & XML Sitemap
-# LLM Context: https://jackylawck.github.io/llms.txt
+# Machine-Readable Context: https://jackylawck.github.io/llms.txt
 Sitemap: https://jackylawck.github.io/sitemap.xml
