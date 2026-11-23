@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- 1. 官方核心門戶與 AI 管治上下文 -->
+  <!-- Hub & LLM Context -->
   <url>
     <loc>https://jackylawck.github.io/</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://jackylawck.github.io/llms.txt</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <priority>0.85</priority>
   </url>
 
-  <!-- 2. Pillar I: 企業級 AI 管治、主權總帳與決策框架 -->
+  <!-- Pillar I: AI Governance & Decision Support -->
   <url>
     <loc>https://jackylawck.github.io/Veracity/</loc>
     <lastmod>2026-11-12</lastmod>
@@ -24,7 +24,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jackylawck.github.io/Veil/</loc>
+    <loc>https://jackylawck.github.io/veil/</loc>
     <lastmod>2026-11-12</lastmod>
     <priority>0.75</priority>
   </url>
@@ -34,7 +34,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jackylawck.github.io/Talentbridge/</loc>
+    <loc>https://jackylawck.github.io/TalentBridge/</loc>
     <lastmod>2026-11-12</lastmod>
     <priority>0.8</priority>
   </url>
@@ -54,7 +54,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jackylawck.github.io/euAIact-faq/</loc>
+    <loc>https://jackylawck.github.io/euaiact-faq/</loc>
     <lastmod>2026-11-12</lastmod>
     <priority>0.75</priority>
   </url>
@@ -74,7 +74,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jackylawck.github.io/Mgmt-faq/</loc>
+    <loc>https://jackylawck.github.io/mgmt-faq/</loc>
     <lastmod>2026-11-12</lastmod>
     <priority>0.7</priority>
   </url>
@@ -89,7 +89,17 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- 3. Pillar II: 零信任純前端 PWA 工具矩陣 -->
+  <!-- Pillar II: Zero-Trust Client Tools -->
+  <url>
+    <loc>https://jackylawck.github.io/SlimVid/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://jackylawck.github.io/KidsPrepDictate/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <priority>0.85</priority>
+  </url>
   <url>
     <loc>https://jackylawck.github.io/SpeakFlow/</loc>
     <lastmod>2026-11-15</lastmod>
@@ -191,14 +201,14 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- 4. Pillar III: 敏捷互動與認知心理矩陣 -->
+  <!-- Pillar III: Organizational Agility & Cognitive Tools -->
   <url>
     <loc>https://jackylawck.github.io/NatureCompass/</loc>
     <lastmod>2026-11-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jackylawck.github.io/Lawgic/</loc>
+    <loc>https://jackylawck.github.io/lawgic/</loc>
     <lastmod>2026-11-12</lastmod>
     <priority>0.8</priority>
   </url>
@@ -233,7 +243,7 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- 5. Pillar IV: J.A.R. 數值模擬與科學探索 -->
+  <!-- Pillar IV: Joint Applied Research -->
   <url>
     <loc>https://jackylawck.github.io/JAR-QubitLab/</loc>
     <lastmod>2026-11-12</lastmod>
@@ -245,7 +255,7 @@
     <priority>0.75</priority>
   </url>
   <url>
-    <loc>https://jackylawck.github.io/JAR-fusion-core/</loc>
+    <loc>https://jackylawck.github.io/jar-fusion-core/</loc>
     <lastmod>2026-11-12</lastmod>
     <priority>0.75</priority>
   </url>
@@ -275,7 +285,7 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- 6. Pillar V: M365 零授權企業自動化與低代碼展示入口 -->
+  <!-- Pillar V: Enterprise M365 Demos -->
   <url>
     <loc>https://jackylawck.github.io/EnterpriseDemo-DailyStaffAppraisal/</loc>
     <lastmod>2026-11-20</lastmod>
@@ -292,7 +302,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jackylawck.github.io/EnterpriseDemo-SiteworksPSPJC/</loc>
+    <loc>https://jackylawck.github.io/EnterpriseDemo-SiteworksSafetyChecklist/</loc>
     <lastmod>2026-11-20</lastmod>
     <priority>0.8</priority>
   </url>
