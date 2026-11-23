@@ -12,6 +12,43 @@
     <priority>0.85</priority>
   </url>
 
+  <!-- Featured: Zero-License Microsoft 365 Enterprise Demos (Pillar V) -->
+  <url>
+    <loc>https://jackylawck.github.io/EnterpriseDemo-SpeakUp-Mediation/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://jackylawck.github.io/EnterpriseDemo-DailyStaffAppraisal/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jackylawck.github.io/EnterpriseDemo-DOIS/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jackylawck.github.io/EnterpriseDemo-NOTAS/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jackylawck.github.io/EnterpriseDemo-SiteworksSafetyChecklist/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jackylawck.github.io/EnterpriseDemo-TAP/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jackylawck.github.io/EnterpriseDemo-CustomerSurveyDataConsolidation/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <priority>0.75</priority>
+  </url>
+
   <!-- Pillar I: AI Governance & Decision Support -->
   <url>
     <loc>https://jackylawck.github.io/Veracity/</loc>
@@ -96,11 +133,6 @@
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://jackylawck.github.io/KidsPrepDictate/</loc>
-    <lastmod>2026-11-23</lastmod>
-    <priority>0.85</priority>
-  </url>
-  <url>
     <loc>https://jackylawck.github.io/SpeakFlow/</loc>
     <lastmod>2026-11-15</lastmod>
     <priority>0.8</priority>
@@ -109,6 +141,11 @@
     <loc>https://jackylawck.github.io/SpeakFlow/dual.html</loc>
     <lastmod>2026-11-15</lastmod>
     <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://jackylawck.github.io/KidsPrepDictate/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://jackylawck.github.io/KidsDictate/</loc>
@@ -283,37 +320,5 @@
     <loc>https://jackylawck.github.io/Jayblade/</loc>
     <lastmod>2026-11-12</lastmod>
     <priority>0.7</priority>
-  </url>
-
-  <!-- Pillar V: Enterprise M365 Demos -->
-  <url>
-    <loc>https://jackylawck.github.io/EnterpriseDemo-DailyStaffAppraisal/</loc>
-    <lastmod>2026-11-20</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jackylawck.github.io/EnterpriseDemo-DOIS/</loc>
-    <lastmod>2026-11-20</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jackylawck.github.io/EnterpriseDemo-NOTAS/</loc>
-    <lastmod>2026-11-20</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jackylawck.github.io/EnterpriseDemo-SiteworksSafetyChecklist/</loc>
-    <lastmod>2026-11-20</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jackylawck.github.io/EnterpriseDemo-TAP/</loc>
-    <lastmod>2026-11-20</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jackylawck.github.io/EnterpriseDemo-CustomerSurveyDataConsolidation/</loc>
-    <lastmod>2026-11-20</lastmod>
-    <priority>0.75</priority>
   </url>
 </urlset>
