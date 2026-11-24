@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://jackylawck.github.io/llms.txt</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <priority>0.85</priority>
   </url>
 
@@ -127,6 +127,11 @@
   </url>
 
   <!-- Pillar II: Zero-Trust Client Tools -->
+  <url>
+    <loc>https://jackylawck.github.io/DeepGate-Zero/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <priority>0.85</priority>
+  </url>
   <url>
     <loc>https://jackylawck.github.io/SlimVid/</loc>
     <lastmod>2026-11-23</lastmod>
